@@ -245,6 +245,7 @@ table#resource-calendar td {
 	position:relative;
 	min-width:55px;
     background-color:#fff;
+	height:40px;
 }
 table#resource-calendar tr.even {
 	background-color:#f7f7f7;
