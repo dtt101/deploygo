@@ -1,7 +1,12 @@
-// This file is automatically included by javascript_include_tag :defaults
-
 // global boolean to mark if drag selection is enabled
 var isDragSelectionEnabled = false;
+
+// handles selecting a date from the calendar
+function navigateToDate(dateString) {
+	// parse date and move URL 2009/11/10 10th November 2009
+	var theDate = new Date(dateString);
+	window.location.href = '/' + theDate.getFullYear() + '/' + (theDate.getMonth() + 1) + '/' + theDate.getDate();
+}
 
 // creates a single allocation from a click on an empty cell
 function createAllocationOnDay(resource_id, allocation_date, project_id, token) {
