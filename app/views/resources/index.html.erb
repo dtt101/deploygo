@@ -1,0 +1,23 @@
+<div class="content">
+<h1>Resources</h1>
+<p>A list of all your resources. A resource can be a person, a third party company - anything you need.</p>
+<% if @organisation.resource_limit > @organisation.resources.count %>
+	<%= link_to 'Create a new resource', new_resource_path %>
+<% else %>
+	<p><strong>So you've reached the limit of resources you can add with your current plan.</strong></p>
+	<p>For now, get in touch with us at support@deploygo.com if you need more, we'd love to hear from you.</p>
+<% end %>
+<% if @organisation.resources.count > 0 %>
+	<table>
+	  <tr class="header">
+	    <th>Name</th>
+	  </tr>
+
+	<% for resource in @resources %>
+	  <tr class="<%= cycle('odd','even') %>">
+	    <td><%= link_to resource.name, edit_resource_path(resource) %></td>
+	  </tr>
+	<% end %>
+	</table>
+<% end %>
+</div>

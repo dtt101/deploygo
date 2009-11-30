@@ -1,0 +1,36 @@
+<div class="content">
+<h1>Create a new user</h1>
+<p>Give a new person access to your site</p>
+<% form_for(@thisuser) do |f| %>
+	<%= f.error_messages %>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name, :class => "large" %>
+  </p>
+  <p>
+    <%= f.label :email %><br />
+    <%= f.text_field :email, :class => "large" %>
+  </p>
+  <p>
+    <%= f.label :read_only %>? <%= f.check_box :read_only %>
+  </p>
+	<p>
+		<b>Password:</b><br />
+		<%= f.password_field :password, :class => "large" %>
+	</p>		
+	<p>
+		<b>Confirm password:</b><br />
+		<%= f.password_field :password_confirmation, :class => "large" %>
+	</p>
+	<% if @admin %>
+		<p>
+			<%= f.select(:organisation_id, @organisations) %>
+		</p>
+	<% end %>
+    <div class="btn-area">
+      <%= f.submit "Create" %>
+    </div>
+<% end %>
+
+<%= link_to '&lt; back to users', users_path %>
+</div>

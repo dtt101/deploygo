@@ -1,0 +1,29 @@
+<div class="content">
+<h1>Users</h1>
+<p>A list of people who can access the site</p>
+<%= link_to 'Create a new user', new_user_path %>
+<table>
+  <tr class="header">
+    <th>Name</th>
+    <th>Email</th>
+    <th>Read only?</th>
+	<% if @admin %>
+		<th>Organisation</th>
+	<% end %>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr class="<%= cycle('odd','even') %>">
+    <td><%= link_to user.name, edit_user_path(user) %></td>
+    <td><%=h user.email %></td>
+    <td><% if user.read_only %>Yes<% else %>No<% end %></td>
+	<% if @admin %>
+		<% if user.organisation %>
+		<td><%=h user.organisation.name %></td>
+		<% end %>
+	<% end %>
+  </tr>
+<% end %>
+</table>
+
+</div>

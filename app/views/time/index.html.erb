@@ -1,0 +1,102 @@
+<% if @projects.count <= 0 %>
+	<div class="content" style="width:500px">
+		<p style="padding-bottom:20px">Welcome to <strong>deploygo</strong> and thanks for signing up.</p>
+		<p>Right - let's get started.</p>
+		<p>This is the Planner page, it's empty now because you don't have any projects. You can always come back here by clicking the <strong>planner</strong> link above.</p>
+		<p>Go and add your <%= link_to 'projects', projects_path %>. These are the things that your resources will be working on.</p>
+		<p>A project can be anything you want to schedule time against. An example might be 'new website planning' or 'production meeting'.<br />It could even be something like 'holiday' or 'office move'.</p>
+	</div>
+<% elsif @resources.count <= 0 %>
+	<div class="content">
+		<p>Right - you've got a project or two. Next we need to add some <%= link_to 'resources', resources_path %>.</p>
+		<p>Resources are anybody or thing that works on a project - like 'John Smith' or 'OutSource Contract Co'.</p>
+		<p>When you're done - click the <strong>planner</strong> link above and you'll be ready to make your plans!</p>
+	</div>
+<% else %>
+<input type="hidden" id="tracker" name="tracker" value="<%= form_authenticity_token %>">
+<div id="calendar">
+<div id="date-navigation">
+    <%= link_to '&lt; Previous week', :action => 'index', :year => @lastweek.year, :month => @lastweek.month, :day => @lastweek.day %>
+    |
+    <%= link_to 'Today', :action => 'index' %>
+    |
+    <%= link_to 'Next week &gt;', :action => 'index', :year => @nextweek.year, :month => @nextweek.month, :day => @nextweek.day %>
+</div>
+<table id="resource-calendar" cellspacing="0">
+	<thead>
+		<tr id="actions">
+			<th colspan="6" id="calendar-header" style="text-align:left">
+				<% if !@user.read_only %>
+				<div style="float:left">
+					<% form_remote_for :allocation, :url => { :action => "create" } do |f| %>
+					<div id="select-project" class="action">
+						<label>Select a project:</label>
+					    <% f.text_field :project_id %>
+					    <%= f.collection_select(:project_id, @projects, :id, :name_with_days, {}, {:class => 'medium'}) %>
+					</div>
+					<% end %>
+				</div>
+				<% end %>
+			</th>
+			<th colspan="9" style="text-align:right">
+				<% if !@user.read_only %>
+					<%= button_to_function 'Create selected', "doSelectedAllocations('" + form_authenticity_token + "')" %>
+					<%= button_to_function 'Delete selected', "deleteSelectedAllocations('" + form_authenticity_token + "')" %>
+					<%= button_to_function 'Deselect all', "deselectAllocations()" %>					
+				<% else %>
+					&nbsp;
+				<% end %>
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr id="months">
+			<th>&nbsp;</th>
+			<th><%= @startdate.strftime("%B").upcase() %></th>
+			<% @startdate.to_time.tomorrow.to_date.upto(@enddate) { |thedate| %>
+			<th>
+				<% if thedate.day == 1 %>
+					<%= thedate.strftime("%B").upcase() %>
+				<% end %>
+			</th>
+			<% } %>
+		</tr>
+		<tr id="dates">
+			<th>&nbsp;</th>
+			<% @startdate.upto(@enddate) { |thedate| %>
+				<th class="<%if thedate == Date.today %>today<% end %>"><%= thedate.strftime("%a %d") %></th>
+			<% } %>
+		</tr>
+		<% if @projects_due.count > 0 %>
+		<tr id="projects_due">
+			<td><strong>Due:</strong></td>
+			<% @startdate.upto(@enddate) { |thedate| %>
+				<td class="<%= thedate.strftime("%a") %><%if thedate == Date.today %> today<% end %><%if thedate == @enddate %> last<% end %>">
+				<% for project in @projects_due %>
+					<% if thedate == project.due_date.to_date %>
+						<div class="due">
+							<%= h(project.name) %>
+						</div>
+		          <% else %>
+		            &nbsp;
+					<% end %>
+				<% end %>	
+				</td>
+			<% } %>
+		</tr>
+		<% end %>
+		<% for @resource in @resources %>
+		<tr class="<%= cycle('odd','even') %>">
+			<td class="resource-name"><%= @resource.initials %></td>
+			<% @startdate.upto(@enddate) { |thedate| %>
+					<%= render(:partial => 'day', 
+					:object => @resource,
+					:locals => { :thedate => thedate, :enddate => @enddate }) %>
+			<% } %>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+</div>
+
+<% end %>

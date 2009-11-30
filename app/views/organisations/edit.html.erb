@@ -1,0 +1,24 @@
+<h1>Editing organisation</h1>
+
+<% form_for(@organisation) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :resource_limit %><br />
+    <%= f.text_field :resource_limit %>
+  </p>
+  <p>
+    <%= f.label :administrator %><br />
+    <%= f.check_box :administrator %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @organisation %> |
+<%= link_to 'Back', organisations_path %>

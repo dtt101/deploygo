@@ -1,0 +1,24 @@
+<h1>Listing organisations</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Resource limit</th>
+    <th>Administrator</th>
+  </tr>
+
+<% for organisation in @organisations %>
+  <tr>
+    <td><%=h organisation.name %></td>
+    <td><%=h organisation.resource_limit %></td>
+    <td><%=h organisation.administrator %></td>
+    <td><%= link_to 'Show', organisation %></td>
+    <td><%= link_to 'Edit', edit_organisation_path(organisation) %></td>
+    <td><%= link_to 'Destroy', organisation, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New organisation', new_organisation_path %>

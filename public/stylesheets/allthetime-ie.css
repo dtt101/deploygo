@@ -1,0 +1,10 @@
+dt {
+	width:90px;
+	float:left;
+	line-height:24px;
+	font-size:14px;
+	margin-top:0px;
+}
+div.login-panel input {	
+    line-height: 18px;
+}

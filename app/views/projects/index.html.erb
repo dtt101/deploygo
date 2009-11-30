@@ -1,0 +1,45 @@
+<div class="content">
+<h1>Projects</h1>
+<p>A list of all your current projects.<br />
+Your archived projects are at the bottom of the page.</p>
+<%= link_to 'Create a new project', new_project_path %>
+<% if @projects.count > 0 %>
+<table>
+  <tr class="header">
+    <th>Projects</th>
+    <th>Due date</th>
+	<th>Days - planned/target</th>
+  </tr>
+<% for project in @projects %>
+  <% if !project.archive %>
+	  <tr class="<%= cycle('odd','even') %>">
+	    <td>
+		<%= link_to project.name, edit_project_path(project) %>
+		<p><%=h project.description %></p>
+		</td>
+		<td>
+			<% if project.due_date %>
+			    <%=h project.due_date.strftime('%b %d, %Y') %>
+			<% else %>
+				&#8212;
+			<% end %>
+		</td>
+		<td><%= project.days_info %></td>
+	  </tr>
+  <% end %>
+<% end %>
+</table>
+
+<h3>Archived Projects</h3>
+<ul>
+<% for project in @projects %>
+  <% if project.archive %>
+	<li><%= link_to project.name, edit_project_path(project) %></li>
+  <% end %>
+<% end %>
+</ul>
+</table>
+<% else %>
+<p>You have no projects yet. Would you like to <%= link_to 'create one', new_project_path %>?
+<% end %>
+</div>

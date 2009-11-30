@@ -1,0 +1,12 @@
+<% allocations = @resource.allocations.find_all_by_allocation_date(thedate) %>
+<td id="day_<%= @resource.id %>_<%= thedate.to_s(:db) %>" 
+	class="<%= thedate.strftime("%a") %><%if thedate == Date.today %> today<% end %><%if thedate == enddate %> last<% end %>"
+>
+<% if allocations.size > 0 %>
+	<% allocations.each {|@allocation|  %>
+		<%= render(:partial => 'project', :object => @allocation) %>
+	<% } %>
+<% else %>
+  &nbsp;
+<% end %>
+</td>

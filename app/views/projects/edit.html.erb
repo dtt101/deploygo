@@ -1,0 +1,56 @@
+<div class="content">
+<h1>Edit your project</h1>
+<p>
+	When you update your project changes will be effective from now.<br />
+	So if you choose to no longer include weekends, all your old scheduling will remain unaltered.
+</p>
+
+<% form_for(@project) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name, :class => "large" %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description, :class => "large" %>
+  </p>
+  <p>
+    <%= f.label :days, 'Days available' %><br />
+    <%= f.text_field :days, :class => 'tiny' %>
+  </p>
+  <p>
+    <%= f.label :include_weekends, "Include weekends when scheduling work?" %> <%= f.check_box :include_weekends %>
+  </p>
+  <p>
+    <%= f.label :due_date %><br />
+	<%= f.calendar_date_select :due_date, :class => 'small', :time => false %>
+  </p>
+  <p>
+    <%= f.label :colour, 'Display colour' %><br />
+	<table class='colour-chart'>
+		<tr>
+			<td style='background-color:#e0e5f2'><%= f.radio_button :colour, '#e0e5f2', :checked => true %></td>
+			<td style='background-color:#aefe88'><%= f.radio_button :colour, '#aefe88' %></td>
+			<td style='background-color:#f7b3ff'><%= f.radio_button :colour, '#f7b3ff' %></td>
+			<td style='background-color:#ffaf86'><%= f.radio_button :colour, '#ffaf86' %></td>
+			<td style='background-color:#dacdf1'><%= f.radio_button :colour, '#dacdf1' %></td>
+			<td style='background-color:#ffd276'><%= f.radio_button :colour, '#ffd276' %></td>
+			<td style='background-color:#c6c6c6'><%= f.radio_button :colour, '#c6c6c6' %></td>
+			<td style='background-color:#fbf063'><%= f.radio_button :colour, '#fbf063' %></td>
+		</tr>
+	</table>
+  </p>
+  <p>
+    <%= f.label :archive, "Archive this project?" %> <%= f.check_box :archive %><br />
+	<span class="note">Archiving means you can't select this project on the planner.<br />Any existing plans for this project will remain the same.</span>
+  </p>
+  <div class="btn-area">
+    <%= f.submit "Update" %>
+  </div>
+<% end %>
+<p>
+<%= link_to '&lt; back to projects', projects_path %>
+</p>
+<div class="destroy">You can also <%= link_to 'delete this project', @project, :confirm => 'Are you sure? There is no going back!', :method => :delete %></div>

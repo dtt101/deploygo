@@ -1,0 +1,28 @@
+<p>
+  <b>Name:</b>
+  <%=h @organisation.name %>
+</p>
+<p>
+  <b>Resource limit:</b>
+  <%=h @organisation.resource_limit %>
+</p>
+<p>
+  <b>Administrator:</b>
+  <%=h @organisation.administrator %>
+</p>
+<p>
+	<b>Number of resources:</b>
+	<%=h @organisation.resources.count %>
+</p>
+<p>
+	<b>Number of users:</b>
+	<%=h @organisation.users.count %>
+</p>
+<p>
+	<b>Projects: allocations</b><br />
+	<% for project in @organisation.projects %>
+		<%=h project.id %>. <%=h project.name %>: <i><%=h project.allocations.count %></i><br />		
+	<% end %>
+</p>
+<%= link_to 'Edit', edit_organisation_path(@organisation) %> |
+<%= link_to 'Back', organisations_path %>

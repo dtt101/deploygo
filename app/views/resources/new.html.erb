@@ -1,0 +1,20 @@
+<div class="content">
+  <h1>Create a new resource</h1>
+  <p>Resources are the people, third parties, contractors etc. that you can schedule to work on projects</p>
+
+  <% form_for(@resource) do |f| %>
+    <%= f.error_messages %>
+
+    <p>
+      <%= f.label :name %><br />
+      <%= f.text_field :name, :class => "large" %>
+    </p>
+    <div class="btn-area">
+      <%= f.submit "Create" %>
+    </div>
+  <% end %>
+
+<p>
+<%= link_to '&lt; back to resources', resources_path %>
+</p>
+</div>

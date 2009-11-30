@@ -1,0 +1,646 @@
+# Logfile created on Mon Nov 30 20:24:52 +0000 2009
+
+Processing TimeController#index (for 127.0.0.1 at 2009-11-30 20:24:59) [GET]
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) ORDER BY name LIMIT 1[0m
+Redirected to http://0.0.0.0:3000/home/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 151ms (DB: 1) | 302 Found [http://0.0.0.0/]
+
+
+Processing HomeController#login (for 127.0.0.1 at 2009-11-30 20:24:59) [GET]
+Rendering template within layouts/home
+Rendering home/login
+Completed in 75ms (View: 73, DB: 0) | 200 OK [http://0.0.0.0/home/login]
+
+
+Processing HomeController#login (for 127.0.0.1 at 2009-11-30 20:25:07) [POST]
+  Parameters: {"name"=>"info@deploygo.com", "commit"=>"Login", "authenticity_token"=>"nEP14sjjPrxt+2nPlbFxCFgocVcwLIOK+wr1T7yNDh0=", "password"=>"password"}
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."email" = 'info@deploygo.com') ORDER BY name LIMIT 1[0m
+  [4;36;1mOrganisation Load (0.3ms)[0m   [0;1mSELECT * FROM "organisations" WHERE ("organisations"."id" = 1) [0m
+Redirected to http://0.0.0.0:3000/
+Completed in 150ms (DB: 1) | 302 Found [http://0.0.0.0/home/login]
+
+
+Processing TimeController#index (for 127.0.0.1 at 2009-11-30 20:25:07) [GET]
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY name LIMIT 1[0m
+  [4;36;1mOrganisation Load (0.3ms)[0m   [0;1mSELECT * FROM "organisations" WHERE ("organisations"."id" = 1) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY name[0m
+Rendering template within layouts/application
+Rendering time/index
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSELECT count(*) AS count_all FROM "projects" WHERE (((archive == 'f') AND ("projects".organisation_id = 1)) AND ("projects".organisation_id = 1)) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "resources" WHERE ("resources".organisation_id = 1) [0m
+  [4;36;1mProject Load (1.4ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects".organisation_id = 1) AND ((archive == 'f') AND ("projects".organisation_id = 1)) ORDER BY name[0m
+  [4;35;1mSQL (19.5ms)[0m   [0mSELECT count(*) AS count_all FROM "allocations" WHERE ("allocations".project_id = 2) [0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT count(*) AS count_all FROM "allocations" WHERE ("allocations".project_id = 14) [0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT count(*) AS count_all FROM "allocations" WHERE ("allocations".project_id = 4) [0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT count(*) AS count_all FROM "allocations" WHERE ("allocations".project_id = 3) [0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT count(*) AS count_all FROM "allocations" WHERE ("allocations".project_id = 10) [0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT count(*) AS count_all FROM "allocations" WHERE ("allocations".project_id = 7) [0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSELECT count(*) AS count_all FROM "allocations" WHERE ("allocations".project_id = 28) [0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT count(*) AS count_all FROM "allocations" WHERE ("allocations".project_id = 26) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "allocations" WHERE ("allocations".project_id = 20) [0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT count(*) AS count_all FROM "projects" WHERE (((((due_date <= '2009-12-13') AND (due_date >= '2009-11-30')) AND (archive == 'f')) AND ("projects".organisation_id = 1)) AND ("projects".organisation_id = 1)) [0m
+  [4;35;1mResource Load (0.6ms)[0m   [0mSELECT * FROM "resources" WHERE ("resources".organisation_id = 1) ORDER BY name[0m
+  [4;36;1mAllocation Load (0.4ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-11-30') AND ("allocations".resource_id = 24) [0m
+Rendered time/_day (3.2ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-01') AND ("allocations".resource_id = 24) [0m
+Rendered time/_day (1.5ms)
+  [4;36;1mAllocation Load (0.6ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-02') AND ("allocations".resource_id = 24) [0m
+Rendered time/_day (1.9ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-03') AND ("allocations".resource_id = 24) [0m
+Rendered time/_day (1.5ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-04') AND ("allocations".resource_id = 24) [0m
+Rendered time/_day (1.4ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-05') AND ("allocations".resource_id = 24) [0m
+Rendered time/_day (1.5ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-06') AND ("allocations".resource_id = 24) [0m
+Rendered time/_day (1.4ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-07') AND ("allocations".resource_id = 24) [0m
+Rendered time/_day (1.5ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-08') AND ("allocations".resource_id = 24) [0m
+Rendered time/_day (1.4ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-09') AND ("allocations".resource_id = 24) [0m
+Rendered time/_day (1.4ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-10') AND ("allocations".resource_id = 24) [0m
+Rendered time/_day (1.4ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-11') AND ("allocations".resource_id = 24) [0m
+Rendered time/_day (1.4ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-12') AND ("allocations".resource_id = 24) [0m
+Rendered time/_day (1.5ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-13') AND ("allocations".resource_id = 24) [0m
+Rendered time/_day (1.5ms)
+  [4;36;1mAllocation Load (0.4ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-11-30') AND ("allocations".resource_id = 8) [0m
+Rendered time/_day (64.9ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-01') AND ("allocations".resource_id = 8) [0m
+Rendered time/_day (1.7ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-02') AND ("allocations".resource_id = 8) [0m
+Rendered time/_day (1.5ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-03') AND ("allocations".resource_id = 8) [0m
+Rendered time/_day (1.4ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-04') AND ("allocations".resource_id = 8) [0m
+Rendered time/_day (1.5ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-05') AND ("allocations".resource_id = 8) [0m
+Rendered time/_day (1.4ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-06') AND ("allocations".resource_id = 8) [0m
+Rendered time/_day (1.3ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-07') AND ("allocations".resource_id = 8) [0m
+Rendered time/_day (1.3ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-08') AND ("allocations".resource_id = 8) [0m
+Rendered time/_day (1.3ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-09') AND ("allocations".resource_id = 8) [0m
+Rendered time/_day (1.4ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-10') AND ("allocations".resource_id = 8) [0m
+Rendered time/_day (1.4ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-11') AND ("allocations".resource_id = 8) [0m
+Rendered time/_day (1.3ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-12') AND ("allocations".resource_id = 8) [0m
+Rendered time/_day (1.3ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-13') AND ("allocations".resource_id = 8) [0m
+Rendered time/_day (1.3ms)
+  [4;36;1mAllocation Load (0.4ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-11-30') AND ("allocations".resource_id = 3) [0m
+  [4;35;1mProject Load (0.4ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 2) ORDER BY name[0m
+Rendered time/_project (4.8ms)
+Rendered time/_day (9.2ms)
+  [4;36;1mAllocation Load (0.4ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-01') AND ("allocations".resource_id = 3) [0m
+Rendered time/_day (1.6ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-02') AND ("allocations".resource_id = 3) [0m
+Rendered time/_day (1.4ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-03') AND ("allocations".resource_id = 3) [0m
+Rendered time/_day (1.3ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-04') AND ("allocations".resource_id = 3) [0m
+Rendered time/_day (1.6ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-05') AND ("allocations".resource_id = 3) [0m
+Rendered time/_day (1.5ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-06') AND ("allocations".resource_id = 3) [0m
+Rendered time/_day (1.4ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-07') AND ("allocations".resource_id = 3) [0m
+Rendered time/_day (1.4ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-08') AND ("allocations".resource_id = 3) [0m
+Rendered time/_day (1.3ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-09') AND ("allocations".resource_id = 3) [0m
+Rendered time/_day (1.3ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-10') AND ("allocations".resource_id = 3) [0m
+Rendered time/_day (1.4ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-11') AND ("allocations".resource_id = 3) [0m
+Rendered time/_day (1.4ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-12') AND ("allocations".resource_id = 3) [0m
+Rendered time/_day (1.4ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-13') AND ("allocations".resource_id = 3) [0m
+Rendered time/_day (1.5ms)
+  [4;35;1mAllocation Load (0.4ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-11-30') AND ("allocations".resource_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 2) ORDER BY name[0m
+Rendered time/_project (0.5ms)
+Rendered time/_day (2.3ms)
+  [4;35;1mAllocation Load (0.4ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-01') AND ("allocations".resource_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 2) ORDER BY name[0m
+Rendered time/_project (0.6ms)
+Rendered time/_day (2.4ms)
+  [4;35;1mAllocation Load (0.5ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-02') AND ("allocations".resource_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 2) ORDER BY name[0m
+Rendered time/_project (0.5ms)
+Rendered time/_day (2.6ms)
+  [4;35;1mAllocation Load (0.4ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-03') AND ("allocations".resource_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 2) ORDER BY name[0m
+Rendered time/_project (0.4ms)
+Rendered time/_day (2.2ms)
+  [4;35;1mAllocation Load (0.4ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-04') AND ("allocations".resource_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 2) ORDER BY name[0m
+Rendered time/_project (0.4ms)
+Rendered time/_day (2.1ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-05') AND ("allocations".resource_id = 1) [0m
+Rendered time/_day (1.3ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-06') AND ("allocations".resource_id = 1) [0m
+Rendered time/_day (1.4ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-07') AND ("allocations".resource_id = 1) [0m
+Rendered time/_day (1.3ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-08') AND ("allocations".resource_id = 1) [0m
+Rendered time/_day (1.3ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-09') AND ("allocations".resource_id = 1) [0m
+Rendered time/_day (1.3ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-10') AND ("allocations".resource_id = 1) [0m
+Rendered time/_day (1.3ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-11') AND ("allocations".resource_id = 1) [0m
+Rendered time/_day (1.2ms)
+  [4;36;1mAllocation Load (0.4ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-12') AND ("allocations".resource_id = 1) [0m
+Rendered time/_day (2.1ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-13') AND ("allocations".resource_id = 1) [0m
+Rendered time/_day (1.4ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-11-30') AND ("allocations".resource_id = 27) [0m
+Rendered time/_day (1.3ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-01') AND ("allocations".resource_id = 27) [0m
+Rendered time/_day (1.3ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-02') AND ("allocations".resource_id = 27) [0m
+Rendered time/_day (1.4ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-03') AND ("allocations".resource_id = 27) [0m
+Rendered time/_day (1.4ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-04') AND ("allocations".resource_id = 27) [0m
+Rendered time/_day (1.4ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-05') AND ("allocations".resource_id = 27) [0m
+Rendered time/_day (1.5ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-06') AND ("allocations".resource_id = 27) [0m
+Rendered time/_day (1.4ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-07') AND ("allocations".resource_id = 27) [0m
+Rendered time/_day (1.4ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-08') AND ("allocations".resource_id = 27) [0m
+Rendered time/_day (1.3ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-09') AND ("allocations".resource_id = 27) [0m
+Rendered time/_day (1.4ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-10') AND ("allocations".resource_id = 27) [0m
+Rendered time/_day (1.4ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-11') AND ("allocations".resource_id = 27) [0m
+Rendered time/_day (1.6ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-12') AND ("allocations".resource_id = 27) [0m
+Rendered time/_day (1.4ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-13') AND ("allocations".resource_id = 27) [0m
+Rendered time/_day (1.5ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-11-30') AND ("allocations".resource_id = 9) [0m
+Rendered time/_day (1.4ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-01') AND ("allocations".resource_id = 9) [0m
+Rendered time/_day (1.4ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-02') AND ("allocations".resource_id = 9) [0m
+Rendered time/_day (1.3ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-03') AND ("allocations".resource_id = 9) [0m
+Rendered time/_day (1.5ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-04') AND ("allocations".resource_id = 9) [0m
+Rendered time/_day (1.3ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-05') AND ("allocations".resource_id = 9) [0m
+Rendered time/_day (1.3ms)
+  [4;36;1mAllocation Load (0.4ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-06') AND ("allocations".resource_id = 9) [0m
+Rendered time/_day (2.0ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-07') AND ("allocations".resource_id = 9) [0m
+Rendered time/_day (1.5ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-08') AND ("allocations".resource_id = 9) [0m
+Rendered time/_day (1.5ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-09') AND ("allocations".resource_id = 9) [0m
+Rendered time/_day (1.4ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-10') AND ("allocations".resource_id = 9) [0m
+Rendered time/_day (1.4ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-11') AND ("allocations".resource_id = 9) [0m
+Rendered time/_day (1.4ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-12') AND ("allocations".resource_id = 9) [0m
+Rendered time/_day (1.7ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-13') AND ("allocations".resource_id = 9) [0m
+Rendered time/_day (1.5ms)
+  [4;36;1mAllocation Load (0.4ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-11-30') AND ("allocations".resource_id = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 2) ORDER BY name[0m
+Rendered time/_project (0.5ms)
+Rendered time/_day (2.2ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-01') AND ("allocations".resource_id = 2) [0m
+Rendered time/_day (1.4ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-02') AND ("allocations".resource_id = 2) [0m
+Rendered time/_day (1.3ms)
+  [4;36;1mAllocation Load (0.4ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-03') AND ("allocations".resource_id = 2) [0m
+Rendered time/_day (1.5ms)
+  [4;35;1mAllocation Load (0.4ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-04') AND ("allocations".resource_id = 2) [0m
+Rendered time/_day (1.8ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-05') AND ("allocations".resource_id = 2) [0m
+Rendered time/_day (1.5ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-06') AND ("allocations".resource_id = 2) [0m
+Rendered time/_day (1.4ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-07') AND ("allocations".resource_id = 2) [0m
+Rendered time/_day (1.3ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-08') AND ("allocations".resource_id = 2) [0m
+Rendered time/_day (1.3ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-09') AND ("allocations".resource_id = 2) [0m
+Rendered time/_day (1.4ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-10') AND ("allocations".resource_id = 2) [0m
+Rendered time/_day (1.4ms)
+  [4;36;1mAllocation Load (0.4ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-11') AND ("allocations".resource_id = 2) [0m
+Rendered time/_day (1.5ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-12') AND ("allocations".resource_id = 2) [0m
+Rendered time/_day (1.4ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-13') AND ("allocations".resource_id = 2) [0m
+Rendered time/_day (1.3ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-11-30') AND ("allocations".resource_id = 4) [0m
+Rendered time/_day (1.3ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-01') AND ("allocations".resource_id = 4) [0m
+Rendered time/_day (1.6ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-02') AND ("allocations".resource_id = 4) [0m
+Rendered time/_day (1.5ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-03') AND ("allocations".resource_id = 4) [0m
+Rendered time/_day (1.4ms)
+  [4;35;1mAllocation Load (0.4ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-04') AND ("allocations".resource_id = 4) [0m
+Rendered time/_day (1.5ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-05') AND ("allocations".resource_id = 4) [0m
+Rendered time/_day (1.4ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-06') AND ("allocations".resource_id = 4) [0m
+Rendered time/_day (1.3ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-07') AND ("allocations".resource_id = 4) [0m
+Rendered time/_day (1.4ms)
+  [4;35;1mAllocation Load (0.4ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-08') AND ("allocations".resource_id = 4) [0m
+Rendered time/_day (1.5ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-09') AND ("allocations".resource_id = 4) [0m
+Rendered time/_day (1.3ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-10') AND ("allocations".resource_id = 4) [0m
+Rendered time/_day (1.3ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-11') AND ("allocations".resource_id = 4) [0m
+Rendered time/_day (1.3ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-12') AND ("allocations".resource_id = 4) [0m
+Rendered time/_day (1.3ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-13') AND ("allocations".resource_id = 4) [0m
+Rendered time/_day (2.1ms)
+Completed in 438ms (View: 340, DB: 64) | 200 OK [http://0.0.0.0/]
+
+
+Processing TimeController#create (for 127.0.0.1 at 2009-11-30 20:25:12) [POST]
+  Parameters: {"authenticity_token"=>"nEP14sjjPrxt+2nPlbFxCFgocVcwLIOK+wr1T7yNDh0=", "_"=>"", "allocations"=>"[{\"resource_id\": \"24\", \"allocation_date\": \"2009-12-02\", \"project_id\": \"2\"}, {\"resource_id\": \"24\", \"allocation_date\": \"2009-12-03\", \"project_id\": \"2\"}, {\"resource_id\": \"24\", \"allocation_date\": \"2009-12-04\", \"project_id\": \"2\"}]"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY name LIMIT 1[0m
+  [4;36;1mOrganisation Load (0.3ms)[0m   [0;1mSELECT * FROM "organisations" WHERE ("organisations"."id" = 1) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY name[0m
+  [4;36;1mProject Load (0.4ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 2 AND ("projects".organisation_id = 1)) ORDER BY name[0m
+  [4;35;1mResource Load (0.3ms)[0m   [0mSELECT * FROM "resources" WHERE ("resources"."id" = 24 AND ("resources".organisation_id = 1)) ORDER BY name[0m
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 2) ORDER BY name[0m
+  [4;35;1mAllocation Exists (0.6ms)[0m   [0mSELECT "allocations".id FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-02' AND "allocations".resource_id = 24) LIMIT 1[0m
+  [4;36;1mAllocation Create (0.5ms)[0m   [0;1mINSERT INTO "allocations" ("created_at", "resource_id", "project_id", "updated_at", "allocation_date") VALUES('2009-11-30 20:25:12', 24, 2, '2009-11-30 20:25:12', '2009-12-02')[0m
+  [4;35;1mProject Load (0.5ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 2 AND ("projects".organisation_id = 1)) ORDER BY name[0m
+  [4;36;1mResource Load (0.2ms)[0m   [0;1mSELECT * FROM "resources" WHERE ("resources"."id" = 24 AND ("resources".organisation_id = 1)) ORDER BY name[0m
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 2) ORDER BY name[0m
+  [4;36;1mAllocation Exists (0.3ms)[0m   [0;1mSELECT "allocations".id FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-03' AND "allocations".resource_id = 24) LIMIT 1[0m
+  [4;35;1mAllocation Create (0.6ms)[0m   [0mINSERT INTO "allocations" ("created_at", "resource_id", "project_id", "updated_at", "allocation_date") VALUES('2009-11-30 20:25:12', 24, 2, '2009-11-30 20:25:12', '2009-12-03')[0m
+  [4;36;1mProject Load (0.4ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 2 AND ("projects".organisation_id = 1)) ORDER BY name[0m
+  [4;35;1mResource Load (0.3ms)[0m   [0mSELECT * FROM "resources" WHERE ("resources"."id" = 24 AND ("resources".organisation_id = 1)) ORDER BY name[0m
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 2) ORDER BY name[0m
+  [4;35;1mAllocation Exists (0.3ms)[0m   [0mSELECT "allocations".id FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-04' AND "allocations".resource_id = 24) LIMIT 1[0m
+  [4;36;1mAllocation Create (0.3ms)[0m   [0;1mINSERT INTO "allocations" ("created_at", "resource_id", "project_id", "updated_at", "allocation_date") VALUES('2009-11-30 20:25:12', 24, 2, '2009-11-30 20:25:12', '2009-12-04')[0m
+Rendering time/create
+  [4;35;1mResource Load (0.6ms)[0m   [0mSELECT * FROM "resources" WHERE ("resources"."id" = 24) ORDER BY name[0m
+Rendered time/_project (0.2ms)
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT count(*) AS count_all FROM "allocations" WHERE ("allocations".project_id = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "resources" WHERE ("resources"."id" = 24) ORDER BY name[0m
+Rendered time/_project (0.1ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "allocations" WHERE ("allocations".project_id = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "resources" WHERE ("resources"."id" = 24) ORDER BY name[0m
+Rendered time/_project (0.1ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "allocations" WHERE ("allocations".project_id = 2) [0m
+Completed in 175ms (View: 28, DB: 7) | 200 OK [http://0.0.0.0/time/create]
+
+
+Processing ProjectsController#index (for 127.0.0.1 at 2009-11-30 20:25:16) [GET]
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY name LIMIT 1[0m
+  [4;36;1mOrganisation Load (0.3ms)[0m   [0;1mSELECT * FROM "organisations" WHERE ("organisations"."id" = 1) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY name[0m
+Rendering template within layouts/application
+Rendering projects/index
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "projects" WHERE ("projects".organisation_id = 1) [0m
+  [4;35;1mProject Load (2.1ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects".organisation_id = 1) ORDER BY name[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSELECT count(*) AS count_all FROM "allocations" WHERE ("allocations".project_id = 2) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "allocations" WHERE ("allocations".project_id = 14) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "allocations" WHERE ("allocations".project_id = 4) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "allocations" WHERE ("allocations".project_id = 3) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "allocations" WHERE ("allocations".project_id = 10) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "allocations" WHERE ("allocations".project_id = 7) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "allocations" WHERE ("allocations".project_id = 28) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "allocations" WHERE ("allocations".project_id = 26) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "allocations" WHERE ("allocations".project_id = 20) [0m
+Completed in 70ms (View: 46, DB: 6) | 200 OK [http://0.0.0.0/projects]
+
+
+Processing ProjectsController#edit (for 127.0.0.1 at 2009-11-30 20:25:18) [GET]
+  Parameters: {"id"=>"14"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY name LIMIT 1[0m
+  [4;36;1mOrganisation Load (0.3ms)[0m   [0;1mSELECT * FROM "organisations" WHERE ("organisations"."id" = 1) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY name[0m
+  [4;36;1mProject Load (0.4ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 14) ORDER BY name[0m
+Rendering template within layouts/application
+Rendering projects/edit
+Completed in 122ms (View: 31, DB: 1) | 200 OK [http://0.0.0.0/projects/14/edit]
+
+
+Processing TimeController#index (for 127.0.0.1 at 2009-11-30 20:25:21) [GET]
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY name LIMIT 1[0m
+  [4;36;1mOrganisation Load (0.3ms)[0m   [0;1mSELECT * FROM "organisations" WHERE ("organisations"."id" = 1) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY name[0m
+Rendering template within layouts/application
+Rendering time/index
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "projects" WHERE (((archive == 'f') AND ("projects".organisation_id = 1)) AND ("projects".organisation_id = 1)) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "resources" WHERE ("resources".organisation_id = 1) [0m
+  [4;36;1mProject Load (1.2ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects".organisation_id = 1) AND ((archive == 'f') AND ("projects".organisation_id = 1)) ORDER BY name[0m
+  [4;35;1mSQL (35.0ms)[0m   [0mSELECT count(*) AS count_all FROM "allocations" WHERE ("allocations".project_id = 2) [0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT count(*) AS count_all FROM "allocations" WHERE ("allocations".project_id = 14) [0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT count(*) AS count_all FROM "allocations" WHERE ("allocations".project_id = 4) [0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT count(*) AS count_all FROM "allocations" WHERE ("allocations".project_id = 3) [0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT count(*) AS count_all FROM "allocations" WHERE ("allocations".project_id = 10) [0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT count(*) AS count_all FROM "allocations" WHERE ("allocations".project_id = 7) [0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT count(*) AS count_all FROM "allocations" WHERE ("allocations".project_id = 28) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "allocations" WHERE ("allocations".project_id = 26) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "allocations" WHERE ("allocations".project_id = 20) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "projects" WHERE (((((due_date <= '2009-12-13') AND (due_date >= '2009-11-30')) AND (archive == 'f')) AND ("projects".organisation_id = 1)) AND ("projects".organisation_id = 1)) [0m
+  [4;35;1mResource Load (0.7ms)[0m   [0mSELECT * FROM "resources" WHERE ("resources".organisation_id = 1) ORDER BY name[0m
+  [4;36;1mAllocation Load (0.4ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-11-30') AND ("allocations".resource_id = 24) [0m
+Rendered time/_day (2.0ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-01') AND ("allocations".resource_id = 24) [0m
+Rendered time/_day (1.5ms)
+  [4;36;1mAllocation Load (0.4ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-02') AND ("allocations".resource_id = 24) [0m
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 2) ORDER BY name[0m
+Rendered time/_project (1.2ms)
+Rendered time/_day (3.1ms)
+  [4;36;1mAllocation Load (0.4ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-03') AND ("allocations".resource_id = 24) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 2) ORDER BY name[0m
+Rendered time/_project (0.4ms)
+Rendered time/_day (2.2ms)
+  [4;36;1mAllocation Load (0.4ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-04') AND ("allocations".resource_id = 24) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 2) ORDER BY name[0m
+Rendered time/_project (0.4ms)
+Rendered time/_day (2.0ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-05') AND ("allocations".resource_id = 24) [0m
+Rendered time/_day (1.3ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-06') AND ("allocations".resource_id = 24) [0m
+Rendered time/_day (1.2ms)
+  [4;36;1mAllocation Load (0.4ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-07') AND ("allocations".resource_id = 24) [0m
+Rendered time/_day (67.3ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-08') AND ("allocations".resource_id = 24) [0m
+Rendered time/_day (1.5ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-09') AND ("allocations".resource_id = 24) [0m
+Rendered time/_day (1.4ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-10') AND ("allocations".resource_id = 24) [0m
+Rendered time/_day (1.4ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-11') AND ("allocations".resource_id = 24) [0m
+Rendered time/_day (1.4ms)
+  [4;35;1mAllocation Load (0.4ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-12') AND ("allocations".resource_id = 24) [0m
+Rendered time/_day (1.5ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-13') AND ("allocations".resource_id = 24) [0m
+Rendered time/_day (1.5ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-11-30') AND ("allocations".resource_id = 8) [0m
+Rendered time/_day (1.3ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-01') AND ("allocations".resource_id = 8) [0m
+Rendered time/_day (1.3ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-02') AND ("allocations".resource_id = 8) [0m
+Rendered time/_day (1.4ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-03') AND ("allocations".resource_id = 8) [0m
+Rendered time/_day (1.3ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-04') AND ("allocations".resource_id = 8) [0m
+Rendered time/_day (1.3ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-05') AND ("allocations".resource_id = 8) [0m
+Rendered time/_day (1.3ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-06') AND ("allocations".resource_id = 8) [0m
+Rendered time/_day (1.4ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-07') AND ("allocations".resource_id = 8) [0m
+Rendered time/_day (1.3ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-08') AND ("allocations".resource_id = 8) [0m
+Rendered time/_day (1.3ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-09') AND ("allocations".resource_id = 8) [0m
+Rendered time/_day (1.3ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-10') AND ("allocations".resource_id = 8) [0m
+Rendered time/_day (1.3ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-11') AND ("allocations".resource_id = 8) [0m
+Rendered time/_day (1.5ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-12') AND ("allocations".resource_id = 8) [0m
+Rendered time/_day (1.3ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-13') AND ("allocations".resource_id = 8) [0m
+Rendered time/_day (1.3ms)
+  [4;35;1mAllocation Load (0.4ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-11-30') AND ("allocations".resource_id = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 2) ORDER BY name[0m
+Rendered time/_project (0.5ms)
+Rendered time/_day (2.1ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-01') AND ("allocations".resource_id = 3) [0m
+Rendered time/_day (1.3ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-02') AND ("allocations".resource_id = 3) [0m
+Rendered time/_day (1.3ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-03') AND ("allocations".resource_id = 3) [0m
+Rendered time/_day (1.3ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-04') AND ("allocations".resource_id = 3) [0m
+Rendered time/_day (1.4ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-05') AND ("allocations".resource_id = 3) [0m
+Rendered time/_day (1.3ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-06') AND ("allocations".resource_id = 3) [0m
+Rendered time/_day (1.3ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-07') AND ("allocations".resource_id = 3) [0m
+Rendered time/_day (1.3ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-08') AND ("allocations".resource_id = 3) [0m
+Rendered time/_day (1.4ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-09') AND ("allocations".resource_id = 3) [0m
+Rendered time/_day (1.3ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-10') AND ("allocations".resource_id = 3) [0m
+Rendered time/_day (1.3ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-11') AND ("allocations".resource_id = 3) [0m
+Rendered time/_day (1.2ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-12') AND ("allocations".resource_id = 3) [0m
+Rendered time/_day (1.4ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-13') AND ("allocations".resource_id = 3) [0m
+Rendered time/_day (1.3ms)
+  [4;36;1mAllocation Load (0.4ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-11-30') AND ("allocations".resource_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 2) ORDER BY name[0m
+Rendered time/_project (0.4ms)
+Rendered time/_day (2.1ms)
+  [4;36;1mAllocation Load (0.4ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-01') AND ("allocations".resource_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 2) ORDER BY name[0m
+Rendered time/_project (0.4ms)
+Rendered time/_day (2.0ms)
+  [4;36;1mAllocation Load (0.4ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-02') AND ("allocations".resource_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 2) ORDER BY name[0m
+Rendered time/_project (0.4ms)
+Rendered time/_day (2.0ms)
+  [4;36;1mAllocation Load (0.4ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-03') AND ("allocations".resource_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 2) ORDER BY name[0m
+Rendered time/_project (0.5ms)
+Rendered time/_day (2.2ms)
+  [4;36;1mAllocation Load (0.4ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-04') AND ("allocations".resource_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 2) ORDER BY name[0m
+Rendered time/_project (0.4ms)
+Rendered time/_day (2.0ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-05') AND ("allocations".resource_id = 1) [0m
+Rendered time/_day (2.1ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-06') AND ("allocations".resource_id = 1) [0m
+Rendered time/_day (1.5ms)
+  [4;36;1mAllocation Load (0.4ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-07') AND ("allocations".resource_id = 1) [0m
+Rendered time/_day (1.5ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-08') AND ("allocations".resource_id = 1) [0m
+Rendered time/_day (1.4ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-09') AND ("allocations".resource_id = 1) [0m
+Rendered time/_day (1.4ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-10') AND ("allocations".resource_id = 1) [0m
+Rendered time/_day (1.8ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-11') AND ("allocations".resource_id = 1) [0m
+Rendered time/_day (1.3ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-12') AND ("allocations".resource_id = 1) [0m
+Rendered time/_day (1.4ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-13') AND ("allocations".resource_id = 1) [0m
+Rendered time/_day (1.3ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-11-30') AND ("allocations".resource_id = 27) [0m
+Rendered time/_day (1.3ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-01') AND ("allocations".resource_id = 27) [0m
+Rendered time/_day (1.3ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-02') AND ("allocations".resource_id = 27) [0m
+Rendered time/_day (1.4ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-03') AND ("allocations".resource_id = 27) [0m
+Rendered time/_day (5.3ms)
+  [4;35;1mAllocation Load (0.4ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-04') AND ("allocations".resource_id = 27) [0m
+Rendered time/_day (1.7ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-05') AND ("allocations".resource_id = 27) [0m
+Rendered time/_day (1.4ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-06') AND ("allocations".resource_id = 27) [0m
+Rendered time/_day (1.3ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-07') AND ("allocations".resource_id = 27) [0m
+Rendered time/_day (1.4ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-08') AND ("allocations".resource_id = 27) [0m
+Rendered time/_day (1.4ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-09') AND ("allocations".resource_id = 27) [0m
+Rendered time/_day (1.4ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-10') AND ("allocations".resource_id = 27) [0m
+Rendered time/_day (1.4ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-11') AND ("allocations".resource_id = 27) [0m
+Rendered time/_day (1.5ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-12') AND ("allocations".resource_id = 27) [0m
+Rendered time/_day (1.4ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-13') AND ("allocations".resource_id = 27) [0m
+Rendered time/_day (1.3ms)
+  [4;35;1mAllocation Load (0.4ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-11-30') AND ("allocations".resource_id = 9) [0m
+Rendered time/_day (67.9ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-01') AND ("allocations".resource_id = 9) [0m
+Rendered time/_day (1.5ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-02') AND ("allocations".resource_id = 9) [0m
+Rendered time/_day (1.4ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-03') AND ("allocations".resource_id = 9) [0m
+Rendered time/_day (1.4ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-04') AND ("allocations".resource_id = 9) [0m
+Rendered time/_day (1.4ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-05') AND ("allocations".resource_id = 9) [0m
+Rendered time/_day (1.3ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-06') AND ("allocations".resource_id = 9) [0m
+Rendered time/_day (1.3ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-07') AND ("allocations".resource_id = 9) [0m
+Rendered time/_day (1.3ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-08') AND ("allocations".resource_id = 9) [0m
+Rendered time/_day (1.3ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-09') AND ("allocations".resource_id = 9) [0m
+Rendered time/_day (1.3ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-10') AND ("allocations".resource_id = 9) [0m
+Rendered time/_day (15.0ms)
+  [4;36;1mAllocation Load (0.4ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-11') AND ("allocations".resource_id = 9) [0m
+Rendered time/_day (1.8ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-12') AND ("allocations".resource_id = 9) [0m
+Rendered time/_day (1.4ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-13') AND ("allocations".resource_id = 9) [0m
+Rendered time/_day (1.3ms)
+  [4;35;1mAllocation Load (0.5ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-11-30') AND ("allocations".resource_id = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 2) ORDER BY name[0m
+Rendered time/_project (0.6ms)
+Rendered time/_day (2.6ms)
+  [4;35;1mAllocation Load (0.4ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-01') AND ("allocations".resource_id = 2) [0m
+Rendered time/_day (1.6ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-02') AND ("allocations".resource_id = 2) [0m
+Rendered time/_day (1.5ms)
+  [4;35;1mAllocation Load (0.4ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-03') AND ("allocations".resource_id = 2) [0m
+Rendered time/_day (1.7ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-04') AND ("allocations".resource_id = 2) [0m
+Rendered time/_day (1.6ms)
+  [4;35;1mAllocation Load (0.4ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-05') AND ("allocations".resource_id = 2) [0m
+Rendered time/_day (1.5ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-06') AND ("allocations".resource_id = 2) [0m
+Rendered time/_day (1.4ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-07') AND ("allocations".resource_id = 2) [0m
+Rendered time/_day (1.3ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-08') AND ("allocations".resource_id = 2) [0m
+Rendered time/_day (1.4ms)
+  [4;35;1mAllocation Load (0.4ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-09') AND ("allocations".resource_id = 2) [0m
+Rendered time/_day (1.5ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-10') AND ("allocations".resource_id = 2) [0m
+Rendered time/_day (1.4ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-11') AND ("allocations".resource_id = 2) [0m
+Rendered time/_day (1.3ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-12') AND ("allocations".resource_id = 2) [0m
+Rendered time/_day (1.4ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-13') AND ("allocations".resource_id = 2) [0m
+Rendered time/_day (1.3ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-11-30') AND ("allocations".resource_id = 4) [0m
+Rendered time/_day (1.4ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-01') AND ("allocations".resource_id = 4) [0m
+Rendered time/_day (1.3ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-02') AND ("allocations".resource_id = 4) [0m
+Rendered time/_day (16.7ms)
+  [4;35;1mAllocation Load (0.5ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-03') AND ("allocations".resource_id = 4) [0m
+Rendered time/_day (2.3ms)
+  [4;36;1mAllocation Load (0.4ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-04') AND ("allocations".resource_id = 4) [0m
+Rendered time/_day (1.8ms)
+  [4;35;1mAllocation Load (0.4ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-05') AND ("allocations".resource_id = 4) [0m
+Rendered time/_day (1.5ms)
+  [4;36;1mAllocation Load (0.4ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-06') AND ("allocations".resource_id = 4) [0m
+Rendered time/_day (1.5ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-07') AND ("allocations".resource_id = 4) [0m
+Rendered time/_day (1.3ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-08') AND ("allocations".resource_id = 4) [0m
+Rendered time/_day (1.2ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-09') AND ("allocations".resource_id = 4) [0m
+Rendered time/_day (1.3ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-10') AND ("allocations".resource_id = 4) [0m
+Rendered time/_day (1.3ms)
+  [4;35;1mAllocation Load (0.4ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-11') AND ("allocations".resource_id = 4) [0m
+Rendered time/_day (2.3ms)
+  [4;36;1mAllocation Load (0.3ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-12') AND ("allocations".resource_id = 4) [0m
+Rendered time/_day (1.4ms)
+  [4;35;1mAllocation Load (0.3ms)[0m   [0mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-13') AND ("allocations".resource_id = 4) [0m
+Rendered time/_day (2.0ms)
+Completed in 490ms (View: 351, DB: 78) | 200 OK [http://0.0.0.0/]
+
+
+Processing TimeController#create (for 127.0.0.1 at 2009-11-30 20:25:29) [POST]
+  Parameters: {"authenticity_token"=>"nEP14sjjPrxt+2nPlbFxCFgocVcwLIOK+wr1T7yNDh0=", "_"=>"", "allocations"=>"[{\"resource_id\": \"9\", \"allocation_date\": \"2009-12-07\", \"project_id\": \"2\"}, {\"resource_id\": \"9\", \"allocation_date\": \"2009-12-08\", \"project_id\": \"2\"}, {\"resource_id\": \"9\", \"allocation_date\": \"2009-12-09\", \"project_id\": \"2\"}]"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY name LIMIT 1[0m
+  [4;35;1mOrganisation Load (0.3ms)[0m   [0mSELECT * FROM "organisations" WHERE ("organisations"."id" = 1) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY name[0m
+  [4;35;1mProject Load (0.4ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 2 AND ("projects".organisation_id = 1)) ORDER BY name[0m
+  [4;36;1mResource Load (0.3ms)[0m   [0;1mSELECT * FROM "resources" WHERE ("resources"."id" = 9 AND ("resources".organisation_id = 1)) ORDER BY name[0m
+  [4;35;1mProject Load (1.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 2) ORDER BY name[0m
+  [4;36;1mAllocation Exists (0.6ms)[0m   [0;1mSELECT "allocations".id FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-07' AND "allocations".resource_id = 9) LIMIT 1[0m
+  [4;35;1mAllocation Create (0.3ms)[0m   [0mINSERT INTO "allocations" ("created_at", "resource_id", "project_id", "updated_at", "allocation_date") VALUES('2009-11-30 20:25:29', 9, 2, '2009-11-30 20:25:29', '2009-12-07')[0m
+  [4;36;1mProject Load (0.4ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 2 AND ("projects".organisation_id = 1)) ORDER BY name[0m
+  [4;35;1mResource Load (0.2ms)[0m   [0mSELECT * FROM "resources" WHERE ("resources"."id" = 9 AND ("resources".organisation_id = 1)) ORDER BY name[0m
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 2) ORDER BY name[0m
+  [4;35;1mAllocation Exists (0.3ms)[0m   [0mSELECT "allocations".id FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-08' AND "allocations".resource_id = 9) LIMIT 1[0m
+  [4;36;1mAllocation Create (0.3ms)[0m   [0;1mINSERT INTO "allocations" ("created_at", "resource_id", "project_id", "updated_at", "allocation_date") VALUES('2009-11-30 20:25:29', 9, 2, '2009-11-30 20:25:29', '2009-12-08')[0m
+  [4;35;1mProject Load (0.4ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 2 AND ("projects".organisation_id = 1)) ORDER BY name[0m
+  [4;36;1mResource Load (0.2ms)[0m   [0;1mSELECT * FROM "resources" WHERE ("resources"."id" = 9 AND ("resources".organisation_id = 1)) ORDER BY name[0m
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 2) ORDER BY name[0m
+  [4;36;1mAllocation Exists (0.3ms)[0m   [0;1mSELECT "allocations".id FROM "allocations" WHERE ("allocations"."allocation_date" = '2009-12-09' AND "allocations".resource_id = 9) LIMIT 1[0m
+  [4;35;1mAllocation Create (0.3ms)[0m   [0mINSERT INTO "allocations" ("created_at", "resource_id", "project_id", "updated_at", "allocation_date") VALUES('2009-11-30 20:25:29', 9, 2, '2009-11-30 20:25:29', '2009-12-09')[0m
+Rendering time/create
+  [4;36;1mResource Load (0.4ms)[0m   [0;1mSELECT * FROM "resources" WHERE ("resources"."id" = 9) ORDER BY name[0m
+Rendered time/_project (0.1ms)
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "allocations" WHERE ("allocations".project_id = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "resources" WHERE ("resources"."id" = 9) ORDER BY name[0m
+Rendered time/_project (0.1ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "allocations" WHERE ("allocations".project_id = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "resources" WHERE ("resources"."id" = 9) ORDER BY name[0m
+Rendered time/_project (0.1ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "allocations" WHERE ("allocations".project_id = 2) [0m
+Completed in 137ms (View: 8, DB: 7) | 200 OK [http://0.0.0.0/time/create]

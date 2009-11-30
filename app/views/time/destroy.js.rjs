@@ -1,0 +1,6 @@
+@allocations.each {|allocation|
+  page.replace "allocation_" + allocation.id.to_s, '&nbsp;'
+  page.call 'updateProjectOptionText', allocation.project.name_with_days, allocation.project.id
+}
+# clear any existing selection
+page.call 'deselectAllocations'

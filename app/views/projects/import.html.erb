@@ -1,0 +1,12 @@
+<div class="content">
+<h1>Import</h1>
+<p>If you use Basecamp by 37signals you can select projects and milestones to import to deploygo.</p>
+<p>Your details are not stored by deploygo in any form, and are used purely to establish a connection
+	to your Basecamp account.</p>
+
+<% form_tag :action => 'import' do %> 
+	Site URL: <%= text_field_tag :site_url %>
+	Username: <%= text_field_tag :username %>
+	Password: <%= password_field_tag :password %>
+<% end %>
+</div>

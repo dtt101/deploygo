@@ -1,0 +1,40 @@
+<div class="content">
+<h1>Edit user</h1>
+
+<% form_for(@thisuser) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name, :class => "large" %>
+  </p>
+  <p>
+    <%= f.label :email %><br />
+    <%= f.text_field :email, :class => "large" %>
+  </p>
+  <% if @thisuser.id != @user.id %>
+  <p>
+    <%= f.label :read_only %>? <%= f.check_box :read_only %>
+  </p>
+  <% end %>
+  <p>
+    <%= f.label :password, "Change password" %><br />
+    <%= f.password_field :password, :class => "large" %>
+  </p>
+  <p>
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, :class => "large" %>
+  </p>
+  <div class="btn-area">
+    <%= f.submit "Update" %>
+  </div>
+<% end %>
+<% if !@user.read_only %>
+<p>
+  <%= link_to '&lt; back to users', users_path %>
+</p>
+<div class="destroy">
+  You can also <%= link_to 'delete this user', @thisuser, :confirm => 'Are you sure? There is no going back!', :method => :delete %>
+</div>
+<% end %>
+</div>

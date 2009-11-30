@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+  <title>deploygo - <%= @organisation.name %></title>
+	<%= javascript_include_tag :defaults %>
+	<%= stylesheet_link_tag "allthetime", :media => "all" %>
+	<%= calendar_date_select_includes "silver" %>
+	<% if @user.read_only %>
+	<script type="text/javascript">
+	document.observe("dom:loaded", function() {
+		if ($('resource-calendar')) {
+			$('resource-calendar').stopObserving('click');
+			$('resource-calendar').stopObserving('mouseover');
+			$('resource-calendar').stopObserving('mouseout');
+			$('resource-calendar').stopObserving('mousedown');			
+			$('resource-calendar').stopObserving('mouseup');
+		}	
+	});
+	</script>
+	<% end %>
+	<% if @stopdefaultdrag %>
+	<script type="text/javascript">
+	// this js needs to be inluded only on planner view
+	if(/MSIE/.test(navigator.userAgent)) {
+	  document.onselectstart = function(event) {
+	    if(!/select|input|textarea/i.test(Event.element(event).tagName))
+	      return false;
+	  };
+	  } else { // assume DOM
+	  document.onmousedown = function(event) {
+	    if(!/select|input|textarea/i.test(Event.element(event).tagName))
+	      return false;
+	  };
+	}
+	</script>
+	<% end %>
+</head>
+<body id="app">
+	<div id="wrap">
+		<div id="main" class="clearfix">	
+			<div id="header">
+					<div id="header-nav">
+						<%= image_tag("logo-small.png", :alt => 'deploygo') %>
+						<strong><%= @organisation.name %></strong>.
+						<%= link_to("Planner", { :controller => "time", :action => "index" }) %><% if !@user.read_only %> | <%= link_to 'Projects', projects_path %> | <%= link_to 'Resources', resources_path %><% end %>
+					</div>
+					<div id="header-subnav">
+						<strong><%= @user.email %></strong>. <% if !@user.read_only %><%= link_to 'Users', users_path %> | <% end %><%= link_to "Account", :controller => "account", :action => "index" %> | <%= link_to "Logout", :controller => "home", :action => "logout" %>
+					</div>
+				<div class="clear"></div>
+			</div>
+			<% if flash[:notice] %>
+				<div id="notice"><%= flash[:notice] %></div>
+			<% else %>
+				<div id="notice" style="display:none"><%= flash[:notice] %></div>
+			<% end %>
+			<% if flash[:warning] %>
+				<div id="warning"><%= flash[:warning] %></div>
+			<% else %>
+				<div id="warning" style="display:none"><%= flash[:warning] %></div>
+			<% end %>
+			<%= yield  %>
+		</div>
+	</div>
+	<div id="footer">
+		<p>email us: <a href="mailto: support@deploygo.com">support@deploygo.com</a> | follow us: <%= link_to("twitter", "http://www.twitter.com/deploygo") %></p>
+	</div>
+	<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+	try {
+	var pageTracker = _gat._getTracker("UA-9964636-1");
+	pageTracker._trackPageview();
+	} catch(err) {}</script>
+</body>
+</html>

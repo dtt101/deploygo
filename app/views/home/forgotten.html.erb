@@ -1,0 +1,11 @@
+<h1 style="margin-top:10px">Forgotten your password?</h1>
+<p style="margin:10px;">We will send password reset instructions to the email address associated with your account</p>
+<% form_tag do %>
+	<dl>
+	<div class="login-panel">
+		<dt><label for="name">Email:</label></dt>
+		<dd><%= text_field_tag :email, params[:email] %></dd>		
+		<dd><%= submit_tag "Send", :class => 'button' %><dd>
+	</div>
+	<dl>
+<% end %>

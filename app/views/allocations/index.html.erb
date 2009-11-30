@@ -1,0 +1,28 @@
+<h1>Listing allocations</h1>
+
+<table border="1">
+  <tr>
+    <th>Resource</th>
+    <th>Project</th>
+    <th>Allocation date</th>
+    <th>Created at</th>
+    <th>Updated at</th>
+  </tr>
+
+<% for allocation in @allocations %>
+  <tr>
+    <td><%=h allocation.resource.id %></td>
+    <td><%=h allocation.project.id %></td>
+    <td><%=h allocation.allocation_date %></td>
+    <td><%=h allocation.created_at %></td>
+    <td><%=h allocation.updated_at %></td>
+    <td><%= link_to 'Show', allocation %></td>
+    <td><%= link_to 'Edit', edit_allocation_path(allocation) %></td>
+    <td><%= link_to 'Destroy', allocation, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New allocation', new_allocation_path %>
