@@ -21,7 +21,7 @@
     <%= link_to 'Today', :action => 'index' %>
     |
     <%= link_to 'Next week &gt;', :action => 'index', :year => @nextweek.year, :month => @nextweek.month, :day => @nextweek.day %>
-	<%= calendar_date_select_tag "select_date_pop_up_hidden", "", :hidden => true, :onchange => "navigateToDate($F(this));" %>
+	| <div id="date-nav-wrapper"><%= calendar_date_select_tag "select_date_pop_up_hidden", "", :hidden => true, :onchange => "navigateToDate($F(this));" %></div>
 </div>
 <table id="resource-calendar" cellspacing="0">
 	<thead>

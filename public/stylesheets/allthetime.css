@@ -216,6 +216,13 @@ div#date-navigation {
     margin:5px;
     padding-left:5px;
 }
+div#date-nav-wrapper {
+	display:inline;
+	margin-left:5px;
+}
+div#date-nav-wrapper img {
+	vertical-align:bottom;	
+}
 div#calendar {
 	text-align:left;
 	margin:20px;
