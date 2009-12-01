@@ -43,7 +43,8 @@
 				<% if !@user.read_only %>
 					<%= button_to_function 'Create selected', "doSelectedAllocations('" + form_authenticity_token + "')" %>
 					<%= button_to_function 'Delete selected', "deleteSelectedAllocations('" + form_authenticity_token + "')" %>
-					<%= button_to_function 'Deselect all', "deselectAllocations()" %>					
+					<%= button_to_function 'Deselect all', "deselectAllocations()" %>
+					<a href="#" id="help-link"><img src="/images/help_icon.png" width="14" height="14" alt="Help" /><a>				
 				<% else %>
 					&nbsp;
 				<% end %>
