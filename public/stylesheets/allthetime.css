@@ -409,6 +409,34 @@ div.content table tr td.num {
 div.content table.colour-chart {
 	margin:0 0 5px 0;
 }
+/* tip */
+.tips { 
+	opacity:.8;
+	filter:alpha(opacity=80);
+	background-repeat:no-repeat;
+	padding:5px;
+	width:200px;
+	display:none;
+	position:absolute;
+	left:0;
+	top:0;
+}
+.tips-inner{
+	padding:8px 8px;
+	max-width:200px;
+	font-family: 'lucida grande',verdana,sans-serif;
+	-moz-border-radius:4px;
+	-khtml-border-radius:4px;
+	-webkit-border-radius:4px;
+	border-radius:4px;
+	background-color:#000;
+	color:white;
+	text-align:left;
+}
+.tips-north {
+	background-image:url(../images/tips-north.gif);
+	background-position: 95% 0%;
+}
 /*
 #d1d1d1 - pale grey
 #c6daed - pale blue
