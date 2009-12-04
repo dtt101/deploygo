@@ -4,7 +4,7 @@
 		<p>Right - let's get started.</p>
 		<p>This is the Planner page, it's empty now because you don't have any projects. You can always come back here by clicking the <strong>planner</strong> link above.</p>
 		<p>Go and add your <%= link_to 'projects', projects_path %>. These are the things that your resources will be working on.</p>
-		<p>A project can be anything you want to schedule time against. An example might be 'new website planning' or 'production meeting'.<br />It could even be something like 'holiday' or 'office move'.</p>
+		<p>A project can be anything you want to schedule time against. An example might be 'new website planning' or 'project phase 2'.<br />It could even be something like 'holiday' or 'office move'.</p>
 	</div>
 <% elsif @resources.count <= 0 %>
 	<div class="content">
@@ -100,7 +100,7 @@
 	</tbody>
 </table>
 </div>
-<div class="tips tips-north">
-	<div class="tips-inner">Somehelp</div>
+<div class="tips tips-north" id="button-help" style="display:none;top:0;left:0">
+	<div class="tips-inner">Drag across the days to select, then use these buttons to create or delete</div>
 </div>
 <% end %>

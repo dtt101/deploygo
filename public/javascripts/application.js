@@ -1,6 +1,24 @@
 // global boolean to mark if drag selection is enabled
 var isDragSelectionEnabled = false;
 
+// shows help message
+function showHelp(e) {
+	var mousex = e.pointerX();
+	var mousey = e.pointerY();
+	var h = $('button-help').getHeight();
+	var w = $('button-help').getWidth();
+	var ypos = mousey + 14;
+	var xpos = (mousex - w) + 15;
+	$('button-help').show();
+	$('button-help').setStyle({
+	  'top': ypos + 'px',
+	  'left': xpos  + 'px'
+	});
+}
+function hideHelp(e) {
+	$('button-help').hide();	
+}
+
 // handles selecting a date from the calendar
 function navigateToDate(dateString) {
 	// parse date and move URL 2009/11/10 10th November 2009
@@ -184,6 +202,8 @@ document.observe("dom:loaded", function() {
 		$('resource-calendar').observe("mouseout", clearHover);
 		$('resource-calendar').observe("mousedown", enableDragSelection);
 		$('resource-calendar').observe("mouseup", disableDragSelection);
+		$('help-link').observe("mouseover", showHelp);
+		$('help-link').observe("mouseout", hideHelp);
 	}
 });
 
