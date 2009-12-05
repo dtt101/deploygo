@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091129161242) do
+ActiveRecord::Schema.define(:version => 20091205102626) do
 
   create_table "allocations", :force => true do |t|
     t.integer  "resource_id",     :null => false
@@ -21,10 +21,10 @@ ActiveRecord::Schema.define(:version => 20091129161242) do
 
   create_table "organisations", :force => true do |t|
     t.string   "name"
-    t.boolean  "administrator"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "resource_limit", :default => 0
+    t.boolean  "administrator",  :default => false
   end
 
   create_table "projects", :force => true do |t|
@@ -34,10 +34,10 @@ ActiveRecord::Schema.define(:version => 20091129161242) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "days"
-    t.boolean  "include_weekends", :default => false
     t.datetime "due_date"
     t.string   "colour"
     t.boolean  "archive",          :default => false
+    t.boolean  "include_weekends", :default => false
   end
 
   create_table "resources", :force => true do |t|
