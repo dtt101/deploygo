@@ -10,9 +10,7 @@ class AllocationsController < ApplicationController
     projects.each do |project|
       allocations = allocations + project.allocations
     end
-    #@allocations = allocations
-    # TODO - remove when run on db
-    @allocations = Allocation.find(:all)
+    @allocations = allocations
     @allocations.each do |a|
       strnoworks = a.allocation_date.to_s(:db)
       a.allocation_date = strnoworks.to_date
