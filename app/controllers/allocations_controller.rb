@@ -11,13 +11,6 @@ class AllocationsController < ApplicationController
       allocations = allocations + project.allocations
     end
     @allocations = allocations
-    # remove this update and the model thing when run
-    @allocations.each do |a|
-      t = a.allocation_date.tomorrow
-      a.allocation_date = t
-      a.save
-    end
-    # end
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @allocations }
