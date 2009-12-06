@@ -7,7 +7,7 @@ class TimeController < ApplicationController
   
   def index
     # get projects and resources
-    @projects = @organisation.projects
+    @projects = @organisation.projects.by_archive_status(false)
     @resources = @organisation.resources
     # create a new allocation for the form
     @allocation = Allocation.new
