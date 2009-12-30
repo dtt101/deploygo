@@ -29,8 +29,13 @@ class ApplicationController < ActionController::Base
   
   # authorize as logged in user
   def authorize
-    unless User.find_by_id(session[:user_id])
-      #flash[:notice] = "Login required"
+    redirect_user = false
+    if (session[:user_id] == nil)
+      redirect_user = true
+    elsif (User.find_by_id(session[:user_id]) == nil)
+      redirect_user = true
+    end
+    if redirect_user
       redirect_to(:controller => "home", :action => "login")
     end
   end  
