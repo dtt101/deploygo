@@ -15,90 +15,91 @@
 <% else %>
 <input type="hidden" id="tracker" name="tracker" value="<%= form_authenticity_token %>">
 <div id="calendar">
-<div id="date-navigation">
-    <%= link_to '&lt; Previous week', :action => 'index', :year => @lastweek.year, :month => @lastweek.month, :day => @lastweek.day %>
-    |
-    <%= link_to 'Today', :action => 'index' %>
-    |
-    <%= link_to 'Next week &gt;', :action => 'index', :year => @nextweek.year, :month => @nextweek.month, :day => @nextweek.day %>
-	| <div id="date-nav-wrapper"><%= calendar_date_select_tag "select_date_pop_up_hidden", "", :hidden => true, :onchange => "navigateToDate($F(this));" %></div>
-</div>
-<table id="resource-calendar" cellspacing="0">
-	<thead>
-		<tr id="actions">
-			<th colspan="6" id="calendar-header" style="text-align:left">
-				<% if !@user.read_only %>
-				<div style="float:left">
-					<% form_remote_for :allocation, :url => { :action => "create" } do |f| %>
-					<div id="select-project" class="action">
-						<label>Select a project:</label>
-					    <% f.text_field :project_id %>
-					    <%= f.collection_select(:project_id, @projects, :id, :name_with_days, {}, {:class => 'medium'}) %>
+	<div id="date-navigation">
+	    <%= link_to '&lt; Previous week', :action => 'index', :year => @lastweek.year, :month => @lastweek.month, :day => @lastweek.day %>
+	    |
+	    <%= link_to 'Today', :action => 'index' %>
+	    |
+	    <%= link_to 'Next week &gt;', :action => 'index', :year => @nextweek.year, :month => @nextweek.month, :day => @nextweek.day %>
+		| <div id="date-nav-wrapper"><%= calendar_date_select_tag "select_date_pop_up_hidden", "", :hidden => true, :onchange => "navigateToDate($F(this));" %></div>
+	</div>
+
+	<table id="resource-calendar" cellspacing="0">
+		<thead>
+			<tr id="actions">
+				<th colspan="15" id="calendar-header">
+					<% if !@user.read_only %>
+					<div id="select-project-container">
+						<% form_remote_for :allocation, :url => { :action => "create" } do |f| %>
+						<div id="select-project" class="action">
+							<label>Select a project:</label>
+						    <% f.text_field :project_id %>
+						    <%= f.collection_select(:project_id, @projects, :id, :name_with_days, {}, {:class => 'medium'}) %>
+						</div>
+						<% end %>
 					</div>
 					<% end %>
-				</div>
-				<% end %>
-			</th>
-			<th colspan="9" style="text-align:right">
-				<% if !@user.read_only %>
-					<%= button_to_function 'Create selected', "doSelectedAllocations('" + form_authenticity_token + "')" %>
-					<%= button_to_function 'Delete selected', "deleteSelectedAllocations('" + form_authenticity_token + "')" %>
-					<%= button_to_function 'Deselect all', "deselectAllocations()" %>
-					<a href="#" id="help-link"><img src="/images/help_icon.png" width="14" height="14" alt="Help" /><a>				
-				<% else %>
-					&nbsp;
-				<% end %>
-			</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr id="months">
-			<th>&nbsp;</th>
-			<th><%= @startdate.strftime("%B").upcase() %></th>
-			<% @startdate.to_time.tomorrow.to_date.upto(@enddate) { |thedate| %>
-			<th>
-				<% if thedate.day == 1 %>
-					<%= thedate.strftime("%B").upcase() %>
-				<% end %>
-			</th>
-			<% } %>
-		</tr>
-		<tr id="dates">
-			<th>&nbsp;</th>
-			<% @startdate.upto(@enddate) { |thedate| %>
-				<th class="<%if thedate == Date.today %>today<% end %>"><%= thedate.strftime("%a %d") %></th>
-			<% } %>
-		</tr>
-		<% if @projects_due.count > 0 %>
-		<tr id="projects_due">
-			<td><strong>Due:</strong></td>
-			<% @startdate.upto(@enddate) { |thedate| %>
-				<td class="<%= thedate.strftime("%a") %><%if thedate == Date.today %> today<% end %><%if thedate == @enddate %> last<% end %>">
-				<% for project in @projects_due %>
-					<% if thedate == project.due_date.to_date %>
-						<div class="due">
-							<%= h(project.name) %>
-						</div>
-		          <% else %>
-		            &nbsp;
+					<% if !@user.read_only %>
+					<div id="select-project-actions">
+						<%= button_to_function 'Create', "doSelectedAllocations('" + form_authenticity_token + "')" %>
+						<%= button_to_function 'Delete', "deleteSelectedAllocations('" + form_authenticity_token + "')" %>
+						<%= button_to_function 'Deselect', "deselectAllocations()" %>
+						<a href="#" id="help-link"><img src="/images/help_icon.png" width="14" height="14" alt="Help" /><a> 
+					</div>
+					<% else %>
+						&nbsp;
 					<% end %>
-				<% end %>	
-				</td>
-			<% } %>
-		</tr>
-		<% end %>
-		<% for @resource in @resources %>
-		<tr class="<%= cycle('odd','even') %>">
-			<td class="resource-name"><%= @resource.initials %></td>
-			<% @startdate.upto(@enddate) { |thedate| %>
-					<%= render(:partial => 'day', 
-					:object => @resource,
-					:locals => { :thedate => thedate, :enddate => @enddate }) %>
-			<% } %>
-		</tr>
-		<% end %>
-	</tbody>
-</table>
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr id="months">
+				<th>&nbsp;</th>
+				<th><%= @startdate.strftime("%B").upcase() %></th>
+				<% @startdate.to_time.tomorrow.to_date.upto(@enddate) { |thedate| %>
+				<th>
+					<% if thedate.day == 1 %>
+						<%= thedate.strftime("%B").upcase() %>
+					<% end %>
+				</th>
+				<% } %>
+			</tr>
+			<tr id="dates">
+				<th>&nbsp;</th>
+				<% @startdate.upto(@enddate) { |thedate| %>
+					<th class="<%if thedate == Date.today %>today<% end %>"><%= thedate.strftime("%a %d") %></th>
+				<% } %>
+			</tr>
+			<% if @projects_due.count > 0 %>
+			<tr id="projects_due">
+				<td><strong>Due:</strong></td>
+				<% @startdate.upto(@enddate) { |thedate| %>
+					<td class="<%= thedate.strftime("%a") %><%if thedate == Date.today %> today<% end %><%if thedate == @enddate %> last<% end %>">
+					<% for project in @projects_due %>
+						<% if thedate == project.due_date.to_date %>
+							<div class="due">
+								<%= h(project.name) %>
+							</div>
+			          <% else %>
+			            &nbsp;
+						<% end %>
+					<% end %>	
+					</td>
+				<% } %>
+			</tr>
+			<% end %>
+			<% for @resource in @resources %>
+			<tr class="<%= cycle('odd','even') %>">
+				<td class="resource-name"><%= @resource.initials %></td>
+				<% @startdate.upto(@enddate) { |thedate| %>
+						<%= render(:partial => 'day', 
+						:object => @resource,
+						:locals => { :thedate => thedate, :enddate => @enddate }) %>
+				<% } %>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
 </div>
 <div class="tips tips-north" id="button-help" style="display:none;top:0;left:0">
 	<div class="tips-inner">Drag across the days to select, then use these buttons to create or delete</div>
