@@ -1,12 +1,11 @@
 ActionController::Routing::Routes.draw do |map|
-
   map.import 'projects/import', :controller => 'projects', :action => 'import'
-
   map.resources :users
   map.resources :allocations
   map.resources :resources
   map.resources :projects
   map.resources :organisations
+  map.resources :teams
 
   # The priority is based upon order of creation: first created -> highest priority.
 
