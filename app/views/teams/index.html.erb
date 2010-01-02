@@ -1,22 +1,18 @@
-<h1>Listing teams</h1>
+<div class="content">
+	<h1>Teams</h1>
+	<p>Use teams to organise and filter resources on the planner.</p>
+	<%= link_to 'Create a new team', new_team_path %>
+	<% if @organisation.teams.count > 0 %>
+		<table>
+		  <tr class="header">
+		    <th>Name</th>
+		  </tr>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Organisation</th>
-  </tr>
-
-<% @teams.each do |team| %>
-  <tr>
-    <td><%=h team.name %></td>
-    <td><%=h team.organisation.name %></td>
-    <td><%= link_to 'Show', team %></td>
-    <td><%= link_to 'Edit', edit_team_path(team) %></td>
-    <td><%= link_to 'Destroy', team, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New team', new_team_path %>
+		<% for team in @teams %>
+		  <tr class="<%= cycle('odd','even') %>">
+		    <td><%= link_to team.name, edit_team_path(team) %></td>
+		  </tr>
+		<% end %>
+		</table>
+	<% end %>
+</div>
