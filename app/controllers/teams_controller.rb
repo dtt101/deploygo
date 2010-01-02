@@ -1,8 +1,11 @@
 class TeamsController < ApplicationController
+  
+  before_filter :authorize, :get_organisation, :get_user, :authorize_as_readwrite
+    
   # GET /teams
   # GET /teams.xml
   def index
-    @teams = Team.all
+    @teams = @organisation.teams
 
     respond_to do |format|
       format.html # index.html.erb

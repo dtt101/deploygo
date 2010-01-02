@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091231132254) do
+ActiveRecord::Schema.define(:version => 20100102155909) do
 
   create_table "allocations", :force => true do |t|
     t.integer  "resource_id",     :null => false
@@ -46,6 +46,14 @@ ActiveRecord::Schema.define(:version => 20091231132254) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "resources_teams", :id => false, :force => true do |t|
+    t.integer "team_id"
+    t.integer "resource_id"
+  end
+
+  add_index "resources_teams", ["resource_id"], :name => "index_resources_teams_on_resource_id"
+  add_index "resources_teams", ["team_id", "resource_id"], :name => "index_resources_teams_on_team_id_and_resource_id", :unique => true
 
   create_table "teams", :force => true do |t|
     t.string   "name"
