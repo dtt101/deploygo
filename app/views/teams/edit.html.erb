@@ -1,20 +1,19 @@
-<h1>Editing team</h1>
+<div class="content">
+<h1>Edit your team</h1>
 
 <% form_for(@team) do |f| %>
   <%= f.error_messages %>
 
   <p>
     <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :class => "large" %>
   </p>
-  <p>
-    <%= f.label :organisation_id %><br />
-    <%= f.text_field :organisation_id %>
-  </p>
-  <p>
-    <%= f.submit 'Update' %>
-  </p>
+  <div class="btn-area">
+    <%= f.submit "Update" %>
+  </div>
 <% end %>
-
-<%= link_to 'Show', @team %> |
-<%= link_to 'Back', teams_path %>
+<p>
+  <%= link_to '&lt; back to teams', teams_path %>
+</p>
+<div class="destroy">You can also <%= link_to 'delete this team', @team, :confirm => 'Are you sure? There is no going back!', :method => :delete %></div>
+</div>

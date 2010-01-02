@@ -6,11 +6,13 @@
 		<table>
 		  <tr class="header">
 		    <th>Name</th>
+			<th>Resources</th>
 		  </tr>
 
 		<% for team in @teams %>
 		  <tr class="<%= cycle('odd','even') %>">
 		    <td><%= link_to team.name, edit_team_path(team) %></td>
+			<td><%= team.resources.count %>
 		  </tr>
 		<% end %>
 		</table>
