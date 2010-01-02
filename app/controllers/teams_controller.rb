@@ -17,7 +17,7 @@ class TeamsController < ApplicationController
   # GET /teams/new.xml
   def new
     @team = Team.new
-
+    @resources = @organisation.resources
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @team }
@@ -30,12 +30,14 @@ class TeamsController < ApplicationController
       @team = Team.find(params[:id])
     else
       @team = @organisation.teams.find(params[:id])
-    end    
+    end
+    # TODO - add resources support
   end
 
   # POST /teams
   # POST /teams.xml
   def create
+    params[:team][:resource_ids] ||= [] # ensures nil state saved if nothing checked
     @team = Team.new(params[:team])
     @team.organisation_id = @organisation.id #team belongs to currently logged in organisation
     

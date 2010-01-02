@@ -9,6 +9,14 @@
       <%= f.label :name %><br />
       <%= f.text_field :name, :class => "large" %>
     </p>
+
+	<% for resource in @resources %>  
+	    <p>  
+	      <%= check_box_tag "team[resource_ids][]", resource.id, @team.resources.include?(resource) %>  
+	      <%= resource.name %>  
+	    </p>  
+	<% end %>
+
     <div class="btn-area">
       <%= f.submit "Create" %>
     </div>
