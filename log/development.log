@@ -1,0 +1,51 @@
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing OrganisationsController#index (for 127.0.0.1 at 2010-01-02 16:54:15) [GET]
+  [4;36;1mOrganisation Load (1.4ms)[0m   [0;1mSELECT * FROM "organisations" [0m
+Rendering template within layouts/organisations
+Rendering organisations/index
+Completed in 121ms (View: 45, DB: 2) | 200 OK [http://0.0.0.0/organisations]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing OrganisationsController#show (for 127.0.0.1 at 2010-01-02 16:54:19) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mOrganisation Load (0.5ms)[0m   [0mSELECT * FROM "organisations" WHERE ("organisations"."id" = 1) [0m
+Rendering template within layouts/organisations
+Rendering organisations/show
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT count(*) AS count_all FROM "resources" WHERE ("resources".organisation_id = 1) [0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT count(*) AS count_all FROM "teams" WHERE ("teams".organisation_id = 1) [0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" WHERE ("users".organisation_id = 1) [0m
+  [4;35;1mProject Load (29.0ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects".organisation_id = 1) ORDER BY name[0m
+  [4;36;1mSQL (5.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "allocations" WHERE ("allocations".project_id = 3) [0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSELECT count(*) AS count_all FROM "allocations" WHERE ("allocations".project_id = 4) [0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT count(*) AS count_all FROM "allocations" WHERE ("allocations".project_id = 1) [0m
+Completed in 177ms (View: 129, DB: 37) | 200 OK [http://0.0.0.0/organisations/1]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing OrganisationsController#index (for 127.0.0.1 at 2010-01-02 16:54:22) [GET]
+  [4;35;1mOrganisation Load (1.4ms)[0m   [0mSELECT * FROM "organisations" [0m
+Rendering template within layouts/organisations
+Rendering organisations/index
+Completed in 40ms (View: 32, DB: 2) | 200 OK [http://0.0.0.0/organisations]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing OrganisationsController#show (for 127.0.0.1 at 2010-01-02 16:54:24) [GET]
+  Parameters: {"id"=>"6"}
+  [4;36;1mOrganisation Load (0.5ms)[0m   [0;1mSELECT * FROM "organisations" WHERE ("organisations"."id" = 6) [0m
+Rendering template within layouts/organisations
+Rendering organisations/show
+  [4;35;1mSQL (0.5ms)[0m   [0mSELECT count(*) AS count_all FROM "resources" WHERE ("resources".organisation_id = 6) [0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT count(*) AS count_all FROM "teams" WHERE ("teams".organisation_id = 6) [0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT count(*) AS count_all FROM "users" WHERE ("users".organisation_id = 6) [0m
+  [4;36;1mProject Load (1.0ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects".organisation_id = 6) ORDER BY name[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSELECT count(*) AS count_all FROM "allocations" WHERE ("allocations".project_id = 7) [0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT count(*) AS count_all FROM "allocations" WHERE ("allocations".project_id = 8) [0m
+Completed in 51ms (View: 36, DB: 4) | 200 OK [http://0.0.0.0/organisations/6]
