@@ -46,7 +46,7 @@
 					<div id="header-nav">
 						<%= image_tag("logo-small.png", :alt => 'deploygo') %>
 						<strong><%= @organisation.name %></strong>.
-						<%= link_to("Planner", { :controller => "time", :action => "index" }) %><% if !@user.read_only %> | <%= link_to 'Projects', projects_path %> | <%= link_to 'Resources', resources_path %><% end %>
+						<%= link_to("Planner", { :controller => "time", :action => "index" }) %><% if !@user.read_only %> | <%= link_to 'Projects', projects_path %> | <%= link_to 'Resources', resources_path %> | <%= link_to 'Teams', teams_path %><% end %>
 					</div>
 					<div id="header-subnav">
 						<strong><%= @user.email %></strong>. <% if !@user.read_only %><%= link_to 'Users', users_path %> | <% end %><%= link_to "Account", :controller => "account", :action => "index" %> | <%= link_to "Logout", :controller => "home", :action => "logout" %>
