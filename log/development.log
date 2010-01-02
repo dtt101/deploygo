@@ -817,3 +817,272 @@ Rendered time/_day (1.8ms)
   [4;36;1mAllocation Load (0.4ms)[0m   [0;1mSELECT * FROM "allocations" WHERE ("allocations"."allocation_date" = '2010-01-10') AND ("allocations".resource_id = 7) [0m
 Rendered time/_day (1.7ms)
 Completed in 435ms (View: 248, DB: 101) | 200 OK [http://0.0.0.0/]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TeamsController#index (for 127.0.0.1 at 2010-01-02 16:30:46) [GET]
+  [4;36;1mUser Load (1.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY name LIMIT 1[0m
+  [4;35;1mOrganisation Load (0.5ms)[0m   [0mSELECT * FROM "organisations" WHERE ("organisations"."id" = 1) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY name[0m
+Rendering template within layouts/teams
+Rendering teams/index
+  [4;35;1mTeam Load (0.7ms)[0m   [0mSELECT * FROM "teams" WHERE ("teams".organisation_id = 1) ORDER BY name[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "organisations" WHERE ("organisations"."id" = 1) [0m
+Completed in 130ms (View: 57, DB: 3) | 200 OK [http://0.0.0.0/teams]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TeamsController#show (for 127.0.0.1 at 2010-01-02 16:30:48) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mUser Load (1.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY name LIMIT 1[0m
+  [4;36;1mOrganisation Load (0.4ms)[0m   [0;1mSELECT * FROM "organisations" WHERE ("organisations"."id" = 1) [0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY name[0m
+Rendering template within layouts/teams
+Rendering teams/show
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.name) on line #3 of app/views/teams/show.html.erb:
+1: <p>
+2:   <b>Name:</b>
+3:   <%=h @team.name %>
+4: </p>
+5: 
+6: <p>
+
+    app/views/teams/show.html.erb:3
+
+Rendered rescues/_trace (46.7ms)
+Rendered rescues/_request_and_response (1.2ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TeamsController#edit (for 127.0.0.1 at 2010-01-02 16:30:52) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY name LIMIT 1[0m
+  [4;35;1mOrganisation Load (0.4ms)[0m   [0mSELECT * FROM "organisations" WHERE ("organisations"."id" = 1) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY name[0m
+  [4;35;1mTeam Load (0.4ms)[0m   [0mSELECT * FROM "teams" WHERE ("teams"."id" = 2) ORDER BY name[0m
+Rendering template within layouts/teams
+Rendering teams/edit
+Completed in 120ms (View: 94, DB: 2) | 200 OK [http://0.0.0.0/teams/2/edit]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TeamsController#update (for 127.0.0.1 at 2010-01-02 16:30:56) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"FbxGaXdOPkBDXFQ6wKz5rAEXNPVrtF3D+esOUYrzOMw=", "id"=>"2", "team"=>{"name"=>"Testicle", "organisation_id"=>"1"}}
+  [4;36;1mUser Load (1.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY name LIMIT 1[0m
+  [4;35;1mOrganisation Load (0.4ms)[0m   [0mSELECT * FROM "organisations" WHERE ("organisations"."id" = 1) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY name[0m
+  [4;35;1mTeam Load (0.4ms)[0m   [0mSELECT * FROM "teams" WHERE ("teams"."id" = 2) ORDER BY name[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mTeam Update (10.6ms)[0m   [0mUPDATE "teams" SET "updated_at" = '2010-01-02 16:30:56.392628', "name" = E'Testicle' WHERE "id" = 2[0m
+  [4;36;1mSQL (53.0ms)[0m   [0;1mCOMMIT[0m
+Rendering template within layouts/teams
+Rendering teams/edit
+Completed in 172ms (View: 7, DB: 66) | 200 OK [http://0.0.0.0/teams/2]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TeamsController#index (for 127.0.0.1 at 2010-01-02 16:30:58) [GET]
+  [4;35;1mUser Load (1.1ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY name LIMIT 1[0m
+  [4;36;1mOrganisation Load (0.4ms)[0m   [0;1mSELECT * FROM "organisations" WHERE ("organisations"."id" = 1) [0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY name[0m
+Rendering template within layouts/teams
+Rendering teams/index
+  [4;36;1mTeam Load (0.6ms)[0m   [0;1mSELECT * FROM "teams" WHERE ("teams".organisation_id = 1) ORDER BY name[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "organisations" WHERE ("organisations"."id" = 1) [0m
+Completed in 34ms (View: 9, DB: 3) | 200 OK [http://0.0.0.0/teams]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TeamsController#edit (for 127.0.0.1 at 2010-01-02 16:31:01) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY name LIMIT 1[0m
+  [4;35;1mOrganisation Load (0.4ms)[0m   [0mSELECT * FROM "organisations" WHERE ("organisations"."id" = 1) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY name[0m
+  [4;35;1mTeam Load (0.4ms)[0m   [0mSELECT * FROM "teams" WHERE ("teams"."id" = 2) ORDER BY name[0m
+Rendering template within layouts/teams
+Rendering teams/edit
+Completed in 97ms (View: 6, DB: 2) | 200 OK [http://0.0.0.0/teams/2/edit]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TeamsController#update (for 127.0.0.1 at 2010-01-02 16:31:04) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"FbxGaXdOPkBDXFQ6wKz5rAEXNPVrtF3D+esOUYrzOMw=", "id"=>"2", "team"=>{"name"=>"Testicle", "organisation_id"=>"2"}}
+  [4;36;1mUser Load (1.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY name LIMIT 1[0m
+  [4;35;1mOrganisation Load (0.4ms)[0m   [0mSELECT * FROM "organisations" WHERE ("organisations"."id" = 1) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY name[0m
+  [4;35;1mTeam Load (0.4ms)[0m   [0mSELECT * FROM "teams" WHERE ("teams"."id" = 2) ORDER BY name[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mTeam Update (0.4ms)[0m   [0mUPDATE "teams" SET "updated_at" = '2010-01-02 16:31:04.194167', "organisation_id" = 2 WHERE "id" = 2[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mCOMMIT[0m
+Rendering template within layouts/teams
+Rendering teams/edit
+Completed in 36ms (View: 5, DB: 4) | 200 OK [http://0.0.0.0/teams/2]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TeamsController#index (for 127.0.0.1 at 2010-01-02 16:31:06) [GET]
+  [4;35;1mUser Load (1.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY name LIMIT 1[0m
+  [4;36;1mOrganisation Load (0.4ms)[0m   [0;1mSELECT * FROM "organisations" WHERE ("organisations"."id" = 1) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY name[0m
+Rendering template within layouts/teams
+Rendering teams/index
+  [4;36;1mTeam Load (0.6ms)[0m   [0;1mSELECT * FROM "teams" WHERE ("teams".organisation_id = 1) ORDER BY name[0m
+Completed in 52ms (View: 2, DB: 3) | 200 OK [http://0.0.0.0/teams]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mTeam Load (1.0ms)[0m   [0;1mSELECT * FROM "teams" WHERE ("teams"."id" = 2) ORDER BY name[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TeamsController#index (for 127.0.0.1 at 2010-01-02 16:32:01) [GET]
+  [4;35;1mUser Load (1.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY name LIMIT 1[0m
+  [4;36;1mOrganisation Load (0.5ms)[0m   [0;1mSELECT * FROM "organisations" WHERE ("organisations"."id" = 1) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY name[0m
+Rendering template within layouts/teams
+Rendering teams/index
+  [4;36;1mTeam Load (0.7ms)[0m   [0;1mSELECT * FROM "teams" WHERE ("teams".organisation_id = 1) ORDER BY name[0m
+Completed in 313ms (View: 21, DB: 3) | 200 OK [http://0.0.0.0/teams]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TeamsController#index (for 127.0.0.1 at 2010-01-02 16:32:04) [GET]
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY name LIMIT 1[0m
+  [4;36;1mOrganisation Load (0.5ms)[0m   [0;1mSELECT * FROM "organisations" WHERE ("organisations"."id" = 1) [0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY name[0m
+Rendering template within layouts/teams
+Rendering teams/index
+  [4;36;1mTeam Load (0.5ms)[0m   [0;1mSELECT * FROM "teams" WHERE ("teams".organisation_id = 1) ORDER BY name[0m
+Completed in 27ms (View: 2, DB: 2) | 200 OK [http://0.0.0.0/teams]
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mTeam Update (0.6ms)[0m   [0;1mUPDATE "teams" SET "updated_at" = '2010-01-02 16:32:09.270025', "organisation_id" = 1 WHERE "id" = 2[0m
+  [4;35;1mSQL (63.1ms)[0m   [0mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TeamsController#index (for 127.0.0.1 at 2010-01-02 16:32:11) [GET]
+  [4;35;1mUser Load (1.1ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY name LIMIT 1[0m
+  [4;36;1mOrganisation Load (0.4ms)[0m   [0;1mSELECT * FROM "organisations" WHERE ("organisations"."id" = 1) [0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY name[0m
+Rendering template within layouts/teams
+Rendering teams/index
+  [4;36;1mTeam Load (0.6ms)[0m   [0;1mSELECT * FROM "teams" WHERE ("teams".organisation_id = 1) ORDER BY name[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "organisations" WHERE ("organisations"."id" = 1) [0m
+Completed in 34ms (View: 9, DB: 2) | 200 OK [http://0.0.0.0/teams]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TeamsController#edit (for 127.0.0.1 at 2010-01-02 16:32:15) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY name LIMIT 1[0m
+  [4;35;1mOrganisation Load (0.4ms)[0m   [0mSELECT * FROM "organisations" WHERE ("organisations"."id" = 1) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY name[0m
+  [4;35;1mTeam Load (0.4ms)[0m   [0mSELECT * FROM "teams" WHERE ("teams"."id" = 2) ORDER BY name[0m
+Rendering template within layouts/teams
+Rendering teams/edit
+Completed in 97ms (View: 5, DB: 2) | 200 OK [http://0.0.0.0/teams/2/edit]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TeamsController#index (for 127.0.0.1 at 2010-01-02 16:32:16) [GET]
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY name LIMIT 1[0m
+  [4;35;1mOrganisation Load (0.4ms)[0m   [0mSELECT * FROM "organisations" WHERE ("organisations"."id" = 1) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY name[0m
+Rendering template within layouts/teams
+Rendering teams/index
+  [4;35;1mTeam Load (0.5ms)[0m   [0mSELECT * FROM "teams" WHERE ("teams".organisation_id = 1) ORDER BY name[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "organisations" WHERE ("organisations"."id" = 1) [0m
+Completed in 33ms (View: 9, DB: 2) | 200 OK [http://0.0.0.0/teams]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TeamsController#destroy (for 127.0.0.1 at 2010-01-02 16:32:22) [DELETE]
+  Parameters: {"authenticity_token"=>"FbxGaXdOPkBDXFQ6wKz5rAEXNPVrtF3D+esOUYrzOMw=", "id"=>"2"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY name LIMIT 1[0m
+  [4;36;1mOrganisation Load (0.4ms)[0m   [0;1mSELECT * FROM "organisations" WHERE ("organisations"."id" = 1) [0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY name[0m
+  [4;36;1mTeam Load (0.4ms)[0m   [0;1mSELECT * FROM "teams" WHERE ("teams"."id" = 2) ORDER BY name[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mResource Load (1.0ms)[0m   [0;1mSELECT * FROM "resources" INNER JOIN "resources_teams" ON "resources".id = "resources_teams".resource_id WHERE ("resources_teams".team_id = 2 ) ORDER BY name[0m
+  [4;35;1mTeam Destroy (0.3ms)[0m   [0mDELETE FROM "teams" WHERE "id" = 2[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://0.0.0.0:3000/teams
+Completed in 74ms (DB: 5) | 302 Found [http://0.0.0.0/teams/2]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TeamsController#index (for 127.0.0.1 at 2010-01-02 16:32:22) [GET]
+  [4;35;1mUser Load (1.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY name LIMIT 1[0m
+  [4;36;1mOrganisation Load (0.4ms)[0m   [0;1mSELECT * FROM "organisations" WHERE ("organisations"."id" = 1) [0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY name[0m
+Rendering template within layouts/teams
+Rendering teams/index
+  [4;36;1mTeam Load (0.6ms)[0m   [0;1mSELECT * FROM "teams" WHERE ("teams".organisation_id = 1) ORDER BY name[0m
+Completed in 93ms (View: 2, DB: 3) | 200 OK [http://0.0.0.0/teams]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TeamsController#index (for 127.0.0.1 at 2010-01-02 16:32:24) [GET]
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY name LIMIT 1[0m
+  [4;36;1mOrganisation Load (0.4ms)[0m   [0;1mSELECT * FROM "organisations" WHERE ("organisations"."id" = 1) [0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY name[0m
+Rendering template within layouts/teams
+Rendering teams/index
+  [4;36;1mTeam Load (0.6ms)[0m   [0;1mSELECT * FROM "teams" WHERE ("teams".organisation_id = 1) ORDER BY name[0m
+Completed in 27ms (View: 2, DB: 2) | 200 OK [http://0.0.0.0/teams]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TeamsController#new (for 127.0.0.1 at 2010-01-02 16:32:26) [GET]
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY name LIMIT 1[0m
+  [4;36;1mOrganisation Load (0.4ms)[0m   [0;1mSELECT * FROM "organisations" WHERE ("organisations"."id" = 1) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY name[0m
+Rendering template within layouts/teams
+Rendering teams/new
+Completed in 55ms (View: 31, DB: 2) | 200 OK [http://0.0.0.0/teams/new]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TeamsController#create (for 127.0.0.1 at 2010-01-02 16:32:32) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"FbxGaXdOPkBDXFQ6wKz5rAEXNPVrtF3D+esOUYrzOMw=", "team"=>{"name"=>"The A Team", "organisation_id"=>"1"}}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY name LIMIT 1[0m
+  [4;35;1mOrganisation Load (0.4ms)[0m   [0mSELECT * FROM "organisations" WHERE ("organisations"."id" = 1) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY name[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (10.9ms)[0m   [0;1mINSERT INTO "teams" ("name", "created_at", "organisation_id", "updated_at") VALUES(E'The A Team', '2010-01-02 16:32:33.001405', 1, '2010-01-02 16:32:33.001405') RETURNING "id"[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mCOMMIT[0m
+Redirected to http://0.0.0.0:3000/teams
+Completed in 111ms (DB: 14) | 302 Found [http://0.0.0.0/teams]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TeamsController#index (for 127.0.0.1 at 2010-01-02 16:32:33) [GET]
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY name LIMIT 1[0m
+  [4;35;1mOrganisation Load (0.4ms)[0m   [0mSELECT * FROM "organisations" WHERE ("organisations"."id" = 1) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY name[0m
+Rendering template within layouts/teams
+Rendering teams/index
+  [4;35;1mTeam Load (0.6ms)[0m   [0mSELECT * FROM "teams" WHERE ("teams".organisation_id = 1) ORDER BY name[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "organisations" WHERE ("organisations"."id" = 1) [0m
+Completed in 33ms (View: 9, DB: 2) | 200 OK [http://0.0.0.0/teams]
