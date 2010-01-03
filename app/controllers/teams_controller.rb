@@ -20,7 +20,6 @@ class TeamsController < ApplicationController
     @resources = @organisation.resources
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml => @team }
     end
   end
 
@@ -31,7 +30,10 @@ class TeamsController < ApplicationController
     else
       @team = @organisation.teams.find(params[:id])
     end
-    # TODO - add resources support
+    @resources = @organisation.resources
+    respond_to do |format|
+      format.html # edit.html.erb
+    end
   end
 
   # POST /teams
@@ -54,13 +56,13 @@ class TeamsController < ApplicationController
   # PUT /teams/1
   # PUT /teams/1.xml
   def update
-    
+    params[:team][:resource_ids] ||= [] # ensures nil state saved if nothing checked    
     if session[:administrator]
       @team = Team.find(params[:id])
     else
       @team = @organisation.teams.find(params[:id])
     end
-
+    @resources = @organisation.resources
     respond_to do |format|
       if @team.update_attributes(params[:team])
         flash.now[:notice] = 'Your team was successfully updated.'
