@@ -244,6 +244,7 @@ div#filter-select-inner {
 	border-radius:4px;
 	background-color: rgb(239, 239, 239);
 	text-align:left;
+	border: 1px solid rgb(204, 204, 204);
 }
 div#filter-select-inner div.links {
 	display:block;
