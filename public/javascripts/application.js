@@ -1,6 +1,11 @@
 // global boolean to mark if drag selection is enabled
 var isDragSelectionEnabled = false;
 
+// toggle filters visibility
+function toggleFilters(e) {
+	$('filter-select').toggleClassName('filters-hidden', 'filters-visible');
+}
+
 // shows help message
 function showHelp(e) {
 	var mousex = e.pointerX();
@@ -204,6 +209,7 @@ document.observe("dom:loaded", function() {
 		$('resource-calendar').observe("mouseup", disableDragSelection);
 		$('help-link').observe("mouseover", showHelp);
 		$('help-link').observe("mouseout", hideHelp);
+		$('show-filters').observe("click", toggleFilters);
 	}
 });
 

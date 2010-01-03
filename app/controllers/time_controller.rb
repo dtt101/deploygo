@@ -9,6 +9,7 @@ class TimeController < ApplicationController
     # get projects and resources
     @projects = @organisation.projects.by_archive_status(false)
     @resources = @organisation.resources
+    @teams = @organisation.teams
     # create a new allocation for the form
     @allocation = Allocation.new
     

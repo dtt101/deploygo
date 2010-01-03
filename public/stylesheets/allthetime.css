@@ -220,15 +220,45 @@ div#date-nav-wrapper {
 div#filter-wrapper {
 	display:inline;
 	margin-left:5px;
+	position:relative;
 }
 div#date-nav-wrapper img, div#filter-wrapper img {
 	vertical-align:bottom;	
 }
 div#filter-select {
 	position:absolute;
+	top:-5px;
+	left:16px;
+	background-repeat:no-repeat;
+	padding:5px;
+	width:300px;
+	z-index:1000;
+}
+div#filter-select-inner {
+	padding:8px 8px;
+	max-width:300px;
+	font-family: 'lucida grande',verdana,sans-serif;
+	-moz-border-radius:4px;
+	-khtml-border-radius:4px;
+	-webkit-border-radius:4px;
+	border-radius:4px;
+	background-color: rgb(239, 239, 239);
+	text-align:left;
+}
+div#filter-select-inner div.links {
+	display:block;
+	width:100%;
+	padding:3px;
+}
+div#filter-select-inner div.links a {
+	display:block;
+	padding:1px;
+}
+div#filter-select.filters-hidden {
 	display:none;
-	top:0;
-	left:0;
+}
+div#filter-select.filters-visible {
+	display:block;
 }
 div#select-project-container {
 	float:left;
