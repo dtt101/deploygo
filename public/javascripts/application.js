@@ -3,6 +3,7 @@ var isDragSelectionEnabled = false;
 
 // toggle filters visibility
 function toggleFilters(e) {
+	Event.stop(e);
 	$('filter-select').toggleClassName('filters-hidden', 'filters-visible');
 }
 // shows help message
