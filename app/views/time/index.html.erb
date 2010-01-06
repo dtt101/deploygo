@@ -6,7 +6,7 @@
 		<p>Go and add your <%= link_to 'projects', projects_path %>. These are the things that your resources will be working on.</p>
 		<p>A project can be anything you want to schedule time against. An example might be 'new website planning' or 'project phase 2'.<br />It could even be something like 'holiday' or 'office move'.</p>
 	</div>
-<% elsif @resources.count <= 0 %>
+<% elsif !@team and @resources.count <= 0 %>
 	<div class="content">
 		<p>Right - you've got a project or two. Next we need to add some <%= link_to 'resources', resources_path %>.</p>
 		<p>Resources are anybody or thing that works on a project - like 'John Smith' or 'OutSource Contract Co'.</p>
@@ -30,7 +30,11 @@
 				<strong>Filter by Team</strong>
 				<div class="links">
 					<% for team in @teams %>
+						<% if team.resources.count > 0 %>
 						<a href="/time/set_team/<%= team.id %>"><%= team.name %></a>
+						<% else %>
+						<span class="disabled"><%= team.name %></span>
+						<% end %>
 					<% end %>
 					<a href="/time/set_team/0">Clear team filter</a>
 					<% if @teams.count == 0 %>

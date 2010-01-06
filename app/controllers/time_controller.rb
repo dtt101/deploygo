@@ -8,10 +8,12 @@ class TimeController < ApplicationController
   def index
     # get projects and resources
     @projects = @organisation.projects.by_archive_status(false)
-    @resources = @organisation.resources
     @teams = @organisation.teams
     if session[:team_id]
       @team = @organisation.teams.find(session[:team_id])
+      @resources = @team.resources
+    else
+      @resources = @organisation.resources
     end
     # create a new allocation for the form
     @allocation = Allocation.new
