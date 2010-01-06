@@ -5,7 +5,6 @@ var isDragSelectionEnabled = false;
 function toggleFilters(e) {
 	$('filter-select').toggleClassName('filters-hidden', 'filters-visible');
 }
-
 // shows help message
 function showHelp(e) {
 	var mousex = e.pointerX();
@@ -208,8 +207,8 @@ document.observe("dom:loaded", function() {
 		$('resource-calendar').observe("mousedown", enableDragSelection);
 		$('resource-calendar').observe("mouseup", disableDragSelection);
 		$('help-link').observe("mouseover", showHelp);
-		$('help-link').observe("mouseout", hideHelp);
 		$('show-filters').observe("click", toggleFilters);
+		$('resource-calendar').observe("mouseout", clearHover);
 	}
 });
 

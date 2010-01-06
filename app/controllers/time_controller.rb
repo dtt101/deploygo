@@ -3,7 +3,7 @@ require 'json/add/rails'
 class TimeController < ApplicationController
 
   before_filter :authorize, :get_organisation, :get_user
-  before_filter :authorize_as_readwrite, :except => :index
+  before_filter :authorize_as_readwrite, :except => [:index, :set_team]
   
   def index
     # get projects and resources
@@ -88,4 +88,12 @@ class TimeController < ApplicationController
       end  
   end
   
+  def set_team
+    team_id = params[:id]
+    team = @organisation.teams.find(team_id)
+    if team 
+      session[:team_id] = team_id
+    end
+    redirect_to(:back)
+  end
 end

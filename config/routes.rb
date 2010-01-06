@@ -42,6 +42,7 @@ ActionController::Routing::Routes.draw do |map|
   map.root :controller => "time"
   map.connect "time/:year/:month/:day", :controller => "time", :action => "index", :requirements => { :year => /(19|20)\d\d/, :month => /[01]?\d/, :day => /[0-3]?\d/}
   map.connect "/:year/:month/:day", :controller => "time", :action => "index", :requirements => { :year => /(19|20)\d\d/, :month => /[01]?\d/, :day => /[0-3]?\d/}
+  map.connect "time/set_team/:id", :controller => "time", :action => "set_team"
   # See how all your routes lay out with "rake routes"
 
   # Install the default routes as the lowest priority.

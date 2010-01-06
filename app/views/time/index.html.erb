@@ -29,9 +29,17 @@
 				<strong>Filter by Team</strong>
 				<div class="links">
 					<% for team in @teams %>
-						<a href="#"><%= team.name %></a>
+						<a href="/time/set_team/<%= team.id %>"><%= team.name %></a>
+					<% end %>
+					<% if @teams.count == 0 %>
+						<% if !@user.read_only %>
+							<a href="/teams">Create a team</a>
+						<% else %>
+							No teams available
+						<% end %>
 					<% end %>
 				</div>
+				
 			</div></div>
 		</div>
 	</div>
