@@ -73,12 +73,12 @@
 		</thead>
 		<tbody>
 			<tr id="months">
-				<th>&nbsp;</th>
+				<th><span class="light"><%= @startdate.year %></span></th>
 				<th><%= @startdate.strftime("%B").upcase() %></th>
 				<% @startdate.to_time.tomorrow.to_date.upto(@enddate) { |thedate| %>
 				<th>
 					<% if thedate.day == 1 %>
-						<%= thedate.strftime("%B").upcase() %>
+						<%= thedate.strftime("%B").upcase() %><br />
 					<% end %>
 				</th>
 				<% } %>

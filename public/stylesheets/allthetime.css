@@ -68,6 +68,7 @@ span.note {
 	color:#999;
 	font-size:0.9em;
 }
+span.light { color:#d1d1d1; }
 div.btn-area {
 	padding: 10px;
 }
