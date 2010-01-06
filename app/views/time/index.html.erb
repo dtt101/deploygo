@@ -25,12 +25,14 @@
 		<div id="date-nav-wrapper"><%= calendar_date_select_tag "select_date_pop_up_hidden", "", :hidden => true, :onchange => "navigateToDate($F(this));" %></div>
 		| 
 		<div id="filter-wrapper"><a href="#" id="show-filters"><img src="/images/filter.png" width="16" height="16" border="0" alt="Filter"></a>
+			<span class="note"><% if @team %><%= @team.name %><% end %></span>
 			<div id="filter-select" class="filters-hidden"><div id="filter-select-inner">
 				<strong>Filter by Team</strong>
 				<div class="links">
 					<% for team in @teams %>
 						<a href="/time/set_team/<%= team.id %>"><%= team.name %></a>
 					<% end %>
+					<a href="/time/set_team/0">Clear team filter</a>
 					<% if @teams.count == 0 %>
 						<% if !@user.read_only %>
 							<a href="/teams">Create a team</a>

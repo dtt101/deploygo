@@ -208,6 +208,7 @@ document.observe("dom:loaded", function() {
 		$('resource-calendar').observe("mousedown", enableDragSelection);
 		$('resource-calendar').observe("mouseup", disableDragSelection);
 		$('help-link').observe("mouseover", showHelp);
+		$('help-link').observe("mouseout", hideHelp);
 		$('show-filters').observe("click", toggleFilters);
 		$('resource-calendar').observe("mouseout", clearHover);
 	}

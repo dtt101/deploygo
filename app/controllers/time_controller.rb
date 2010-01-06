@@ -10,6 +10,9 @@ class TimeController < ApplicationController
     @projects = @organisation.projects.by_archive_status(false)
     @resources = @organisation.resources
     @teams = @organisation.teams
+    if session[:team_id]
+      @team = @organisation.teams.find(session[:team_id])
+    end
     # create a new allocation for the form
     @allocation = Allocation.new
     
@@ -90,9 +93,13 @@ class TimeController < ApplicationController
   
   def set_team
     team_id = params[:id]
-    team = @organisation.teams.find(team_id)
-    if team 
-      session[:team_id] = team_id
+    if team_id == "0"
+      session[:team_id] = nil
+    else
+      team = @organisation.teams.find(team_id)
+      if team 
+        session[:team_id] = team_id
+      end
     end
     redirect_to(:back)
   end
