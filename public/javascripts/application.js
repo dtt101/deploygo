@@ -210,6 +210,7 @@ document.observe("dom:loaded", function() {
 		$('help-link').observe("mouseover", showHelp);
 		$('help-link').observe("mouseout", hideHelp);
 		$('show-filters').observe("click", toggleFilters);
+		$('filter-select').observe("mouseleave", toggleFilters);
 		$('resource-calendar').observe("mouseout", clearHover);
 	}
 });
