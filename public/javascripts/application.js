@@ -1,6 +1,13 @@
 // global boolean to mark if drag selection is enabled
 var isDragSelectionEnabled = false;
 
+// handles change of selected project - sets cookie to remember choice
+function handleProjectChange(e) {
+	var project_selection = Element.extend(e.element());
+	var c = new Cookies();
+	c.set('deploygo_project_selection', project_selection.value);
+}
+
 // toggle filters visibility
 function toggleFilters(e) {
 	Event.stop(e);
@@ -200,6 +207,15 @@ document.observe("dom:loaded", function() {
 		isDragSelectionEnabled = false;
 	}	
 
+	// check for selected project
+	var c = new Cookies();
+	if (c.get('deploygo_project_selection')) {
+		var project_select = $('allocation_project_id');
+		if (project_select) {
+			project_select.value = c.get('deploygo_project_selection');
+		}
+	}
+
 	// observers table for click - uses delegation for speed
 	if ($('resource-calendar')) {
 		$('resource-calendar').observe("click", cellClicked);
@@ -212,6 +228,7 @@ document.observe("dom:loaded", function() {
 		$('show-filters').observe("click", toggleFilters);
 		$('filter-select').observe("mouseleave", toggleFilters);
 		$('resource-calendar').observe("mouseout", clearHover);
+		$('allocation_project_id').observe("change", handleProjectChange);
 	}
 });
 

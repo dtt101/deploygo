@@ -7,6 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
   <title>deploygo - <%= @organisation.name %></title>
 	<%= javascript_include_tag :defaults %>
+	<%= javascript_include_tag "cookies" %>
 	<%= stylesheet_link_tag "allthetime", :media => "all" %>
 	<%= calendar_date_select_includes "silver" %>
 	<% if @user.read_only %>
