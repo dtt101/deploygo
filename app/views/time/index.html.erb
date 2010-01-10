@@ -36,13 +36,14 @@
 						<span class="disabled"><%= team.name %></span>
 						<% end %>
 					<% end %>
-					<a href="/time/set_team/0">Clear team filter</a>
 					<% if @teams.count == 0 %>
 						<% if !@user.read_only %>
 							<a href="/teams">Create a team</a>
 						<% else %>
 							No teams available
 						<% end %>
+					<% else %>
+						<a href="/time/set_team/0">Clear team filter</a>
 					<% end %>
 				</div>
 			</div></div>
