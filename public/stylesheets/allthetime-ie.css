@@ -8,3 +8,8 @@ dt {
 div.login-panel input {	
     line-height: 18px;
 }
+a#help-link {
+    top:-5px;
+    padding-top:0;
+    z-index:-1;
+}
