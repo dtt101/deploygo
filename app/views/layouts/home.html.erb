@@ -11,14 +11,69 @@
 	<%= stylesheet_link_tag "deploygo", :media => "all" %>
 </head>
 <body id="<%= @bodyid || 'public' %>">
+    <div id="wrapper">
+        <div id="header">
+            <div id="nav">
+                <a href="/">Home</a>
+                <a href="/home/tour">Tour</a>
+                <a href="/home/plans">Plans &amp; Pricing</a>
+                <a href="/home/support">Support</a>
+            </div>
+        </div>
+        <div id="primary">
+			<div class="primary-content-header">
+				<h1><%= image_tag("heading-intro.png", :alt => 'Simple Resource Planning', :height => '47', :width => '499') %></h1>
+				<p>deploygo lets you plan who is working on what and when.
+                <br /><a href="#" class="callout">Make resource planning easy - sign up</a></p>
+			</div>
+			<div class="primary-content-left">
+				<h2><a href="#"><%= image_tag("heading-tour.png", :alt => 'Take a Tour', :height => '38', :width => '241') %></a></h2>
+				<p>Throw away your out-of-date whiteboards, your emailed spreadsheets and your hastily scrawled notes.</p>
+                <p><a href="#" class="callout">Take a tour</a></p>
+			</div>
+			<div class="primary-content-right">
+				<h2><a href="#"><%= image_tag("heading-pricing.png", :alt => 'Plans and Pricing', :height => '38', :width => '225') %></a></h2>
+				<p>30 day free trial, quick and easy to sign up.</p>
+                <p><a href="#" class="callout">See plans and pricing</a></p>
+			</div>
+        </div>
+        <div id="secondary">
+            <div id="logo"><%= image_tag("logo.jpg", :alt => 'deploygo', :height => '175', :width => '312') %></div>
+            <div id="login" class="sidebar">
+                <h3>Sign in</h3>
+                <form action="/home/login" method="post"><div style="margin:0;padding:0;display:inline"><input name="authenticity_token" type="hidden" value="FHGc7yN5obw/Yw1BYw4C+JeoEzI19Ezy4kxSpQ+AjXY=" /></div>
+		                <div class="login-panel">
+			                <label for="name">Email</label>
+			                <input id="name" name="name" type="text" />
+			                <label for="password">Password</label>
+			                <input id="password" name="password" type="password" />
+			                <input class="button" name="commit" type="submit" value="Login" />
+		                </div>
+                </form>
+                <p><a href="/home/forgotten" class="highlight">Forgotten password?</a></p>
+                <p>Not signed up yet? <a href="" class="highlight">See plans and pricing.</a></p>
+            </div>
+            <div id="subscribe" class="sidebar">
+				<h3>Subscribe to our newsletter</h3>
+				<p>Hear about new features, special offers and more about once-a-month.</p>
+				<form action="http://deploygo.createsend.com/t/y/s/dydjuu/" method="post">
+					<label for="dydjuu-dydjuu">Email</label> <input type="text" name="cm-dydjuu-dydjuu" id="dydjuu-dydjuu" class="small" />
+					<input type="submit" value="Subscribe" class="button" />
+				</form>
+            </div>
+        </div>
+        <div id="footer">
+			<%= image_tag("logo-footer.jpg", :alt => 'deploygo - simple resource planning', :height => '49', :width => '155') %>
+            <div id="footer-nav">
+                <a href="#">About Us</a>
+                <a href="#">Blog</a>
+                <a href="#">Contact</a>
+                <a href="#">Twitter</a>
+            </div>				
+        </div>
+    </div>
 	
-	
-	
-	
-	
-	
-	
-	
+	<!-- OLD CODE
 	<div id="wrap">
 		<div id="main" class="clearfix">
 			<center>
@@ -39,7 +94,7 @@
 	<div id="footer">
 		email us: <a href="mailto: deploygo@googlemail.com">deploygo@googlemail.com</a> | follow us: <%= link_to("twitter", "http://www.twitter.com/deploygo") %>
 	</div>
-	
+-->
 
 	<script type="text/javascript">
 	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
