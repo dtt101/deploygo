@@ -1,5 +1,13 @@
 class HomeController < ApplicationController
   
+  def index
+    # TODO - create new homepage template
+    # TODO - make sure login flow works correctly - so you can login on homepage and login
+    # TODO - apply template css to other public pages
+    # TODO - strip unecessary HTML from application css
+    # TODO - apply new feel to applications
+  end 
+  
   def login
     if request.post?
       user = User.authenticate(params[:name], params[:password])

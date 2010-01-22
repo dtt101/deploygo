@@ -36,7 +36,7 @@ class ApplicationController < ActionController::Base
       redirect_user = true
     end
     if redirect_user
-      redirect_to(:controller => "home", :action => "login")
+      redirect_to(:controller => "home", :action => "index")
     end
   end  
   
