@@ -2,6 +2,7 @@ class HomeController < ApplicationController
   
   def index
     # TODO - create new homepage template
+    # TODO - style flash notifications
     # TODO - make sure login flow works correctly - so you can login on homepage and login
     # TODO - apply template css to other public pages
     # TODO - strip unecessary HTML from application css
