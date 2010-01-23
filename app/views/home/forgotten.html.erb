@@ -1,11 +1,23 @@
-<h1 style="margin-top:10px">Forgotten your password?</h1>
-<p style="margin:10px;">We will send password reset instructions to the email address associated with your account</p>
-<% form_tag do %>
-	<dl>
-	<div class="login-panel">
-		<dt><label for="name">Email:</label></dt>
-		<dd><%= text_field_tag :email, params[:email] %></dd>		
-		<dd><%= submit_tag "Send", :class => 'button' %><dd>
+<div id="primary">
+	<div class="primary-content-header">
+		<h1><%= image_tag("heading-forgot.png", :alt => 'Forgotten your password?', :height => '47', :width => '499') %></h1>
+		<p>We will send password reset instructions to the email address associated with your account</p>
+		<% form_tag do %>
+			<dl>
+			<div class="login-panel">
+				<dt><label for="name">Email</label></dt>
+				<dd><%= text_field_tag :email, params[:email] %></dd>		
+				<dd><%= submit_tag "Send", :class => 'button' %><dd>
+			</div>
+			<dl>
+		<% end %>
 	</div>
-	<dl>
-<% end %>
+</div>
+<div id="secondary">
+	<%= render(:partial => 'logo') %>
+	<div class="sidebar">
+		<h3>Need help?</h3>
+		<p>Try our <a href="/home/support" class="highlight">support</a> pages or <a class="highlight" href="/home/contact">contact</a> us if you can't find an answer there.</p>
+	</div>
+	<%= render(:partial => 'subscribe') %>
+</div>

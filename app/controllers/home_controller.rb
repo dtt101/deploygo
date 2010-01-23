@@ -36,6 +36,7 @@ class HomeController < ApplicationController
   end
 
   def forgotten
+    @bodyid = "login"
     user = User.find_by_email(params[:email])
     if request.post?
       user = User.find_by_email(params[:email])
@@ -47,6 +48,7 @@ class HomeController < ApplicationController
         # Uncomment to test
         #email = UserMailer.create_forgot_password(user)
         #render(:text => "<pre>" + email.encoded + "</pre>")
+        # End test
         flash.now[:notice] = "Your password reset instructions have been emailed to #{user.email}."
       else
         flash.now[:warning] = "Sorry, we can't find that email address in our system. Please try again."
