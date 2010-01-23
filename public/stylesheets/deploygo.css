@@ -119,8 +119,8 @@ div.sidebar {
     font-size:85%;
     padding-left:13px;
 }
-/* secondary forms */
-#secondary form input {
+/* secondary and forms */
+#secondary form input, form input {
     border:0;
     padding:4px;
     width:252px;
@@ -138,7 +138,7 @@ div.sidebar {
     width:100px;
     margin-right:10px;
 }
-#secondary form input.button {
+input.button, #secondary input.button {
     width:auto;
     background-color:#ff6c00;
     font-weight:bold;
@@ -155,5 +155,48 @@ div.sidebar {
     border-bottom:1px solid #739b99;
     width:260px;
     font-size:153.9%;
+}
+/* login panel */
+body#login div.login-panel {
+	width:430px;
+	text-align:left;
+	padding:0 32px;
+}
+
+body#login div.login-panel input {
+	line-height:24px;
+	font-size:108%;
+}
+
+body#login div.login-panel input#name {
+	width:300px;
+}
+
+body#login div.login-panel input#password {
+	width:200px;
+}
+
+body#login dt {
+	width:90px;
+	float:left;
+	line-height:24px;
+	font-size:108%;
+	margin-top:5px;
+}
+body#login dt.login-panel-password {
+	margin-top:10px;
+}
+body#login dd {
+	margin:10px 0px 5px 80px;
+	line-height:24px;
+	font-size:93%;
+}
+
+body#login div.login-panel input.button {
+	width:auto;
+	font-size:100%;
+	margin-left:10px;
+	padding:3px;
+    border:0;
 }
 

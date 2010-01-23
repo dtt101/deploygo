@@ -16,7 +16,7 @@
 	</div>
 </div>
 <div id="secondary">
-    <div id="logo"><%= image_tag("logo.jpg", :alt => 'deploygo', :height => '175', :width => '312') %></div>
+	<%= render(:partial => 'logo') %> 
     <div id="login" class="sidebar">
         <h3>Sign in</h3>
         <form action="/home/login" method="post"><div style="margin:0;padding:0;display:inline"><input name="authenticity_token" type="hidden" value="FHGc7yN5obw/Yw1BYw4C+JeoEzI19Ezy4kxSpQ+AjXY=" /></div>
@@ -31,12 +31,5 @@
         <p><a href="/home/forgotten" class="highlight">Forgotten password?</a></p>
         <p>Not signed up yet? <a href="" class="highlight">See plans and pricing.</a></p>
     </div>
-    <div id="subscribe" class="sidebar">
-		<h3>Subscribe to our newsletter</h3>
-		<p>Hear about new features, special offers and more about once-a-month.</p>
-		<form action="http://deploygo.createsend.com/t/y/s/dydjuu/" method="post">
-			<label for="dydjuu-dydjuu">Email</label> <input type="text" name="cm-dydjuu-dydjuu" id="dydjuu-dydjuu" class="small" />
-			<input type="submit" value="Subscribe" class="button" />
-		</form>
-    </div>
+	<%= render(:partial => 'subscribe') %>
 </div>
