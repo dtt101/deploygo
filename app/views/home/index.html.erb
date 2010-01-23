@@ -19,16 +19,16 @@
 	<%= render(:partial => 'logo') %> 
     <div id="login" class="sidebar">
         <h3>Sign in</h3>
-        <form action="/home/login" method="post"><div style="margin:0;padding:0;display:inline"><input name="authenticity_token" type="hidden" value="FHGc7yN5obw/Yw1BYw4C+JeoEzI19Ezy4kxSpQ+AjXY=" /></div>
+		<% form_tag(:action => :login) do %>
                 <div class="login-panel">
 	                <label for="name">Email</label>
-	                <input id="name" name="name" type="text" />
+	                <%= text_field_tag :name, params[:name] %>
 	                <label for="password">Password</label>
-	                <input id="password" name="password" type="password" />
-	                <input class="button" name="commit" type="submit" value="Login" />
+	                <%= password_field_tag :password, params[:password] %>
+					<%= submit_tag "Login", :class => 'button' %>
                 </div>
-        </form>
-        <p><a href="/home/forgotten" class="highlight">Forgotten password?</a></p>
+        <% end %>
+        <p><%= link_to 'Forgotten password?', { :action => "forgotten" }, :class => 'highlight' %></p>
         <p>Not signed up yet? <a href="" class="highlight">See plans and pricing.</a></p>
     </div>
 	<%= render(:partial => 'subscribe') %>
