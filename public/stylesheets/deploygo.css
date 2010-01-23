@@ -91,7 +91,7 @@ div.sidebar {
 #primary div.primary-content-header {
     margin-top:132px;
 }
-#primary div.primary-content-header p {
+#primary div.primary-content-header p.description {
     font-size:153.9%;
 }
 #primary div.primary-content-left {

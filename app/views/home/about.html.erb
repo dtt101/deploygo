@@ -1,1 +1,21 @@
-about
+<div id="primary">
+	<div class="primary-content-header">
+		<h1><%= image_tag("heading-about.png", :alt => 'About Us', :height => '47', :width => '189') %></h1>
+		<p class="description">Whiteboards, sketches on paper, complicated software...</p>
+		<p>...are no way to manage the most important part of your projects - who is doing the work and when.</p>
+		<p class="description">We make resource planning easy.</p>
+		<p>Born from years of experience developing software <strong>deploygo</strong> lets you allocate resource to projects, and instantly see the impact across all your projects.</p>
+		<p class="description">Collaborate and share.</p>
+		<p>Resource planning gets done by everybody who needs to be involved. We're web-based too, so you can always get the information you need.</p>
+		<p class="description">Want to know more?</p>
+		<p><a href="/home/tour" class="highlight">Take a tour</a>, <a href="/home/contact" class="highlight">get in touch</a>, or just <a href="/home/plans" class="highlight">sign up for a free trial</a>.</p>		
+	</div>
+</div>
+<div id="secondary">
+	<%= render(:partial => 'logo') %>
+	<%= render(:partial => 'subscribe') %>
+	<div class="sidebar">
+		<h3>Need help?</h3>
+		<p>Try our <a href="/home/support" class="highlight">support</a> pages or <a class="highlight" href="/home/contact">contact</a> us if you can't find an answer there.</p>
+	</div>
+</div>
