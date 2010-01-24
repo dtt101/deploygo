@@ -1,1 +1,17 @@
-contact - need to put company address, details etc and email
+<div id="primary">
+	<div class="primary-content-header">
+		<h1><%= image_tag("heading-contact.png", :alt => 'Contact', :height => '47', :width => '221') %></h1>
+		<p class="description">Want to get in touch?</p>
+		<p>Questions? Criticisms? Something we need to know?</p>
+		<p>Simply email us on <a class="highlight" href="mailto: deploygo@googlemail.com">deploygo@googlemail.com</a>.</p>
+		<p>
+	</div>
+</div>
+<div id="secondary">
+	<%= render(:partial => 'logo') %>
+	<%= render(:partial => 'subscribe') %>
+	<div class="sidebar">
+		<h3>Need help?</h3>
+		<p>Try our <a href="/home/support" class="highlight">support</a> pages.</p>
+	</div>
+</div>
