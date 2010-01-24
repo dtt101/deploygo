@@ -18,18 +18,23 @@
 <div id="secondary">
 	<%= render(:partial => 'logo') %> 
     <div id="login" class="sidebar">
-        <h3>Sign in</h3>
-		<% form_tag(:action => :login) do %>
-                <div class="login-panel">
-	                <label for="name">Email</label>
-	                <%= text_field_tag :name, params[:name] %>
-	                <label for="password">Password</label>
-	                <%= password_field_tag :password, params[:password] %>
-					<%= submit_tag "Login", :class => 'button' %>
-                </div>
-        <% end %>
-        <p><%= link_to 'Forgotten password?', { :action => "forgotten" }, :class => 'highlight' %></p>
-        <p>Not signed up yet? <a href="" class="highlight">See plans and pricing.</a></p>
+		<% if !@user %>
+	        <h3>Sign in</h3>
+			<% form_tag(:action => :login) do %>
+	                <div class="login-panel">
+		                <label for="name">Email</label>
+		                <%= text_field_tag :name, params[:name] %>
+		                <label for="password">Password</label>
+		                <%= password_field_tag :password, params[:password] %>
+						<%= submit_tag "Login", :class => 'button' %>
+	                </div>
+	        <% end %>
+	        <p><%= link_to 'Forgotten password?', { :action => "forgotten" }, :class => 'highlight' %></p>
+	        <p>Not signed up yet? <a href="" class="highlight">See plans and pricing.</a></p>
+		<% else %>
+			<h3>Planner</h3>
+			<p><a href="/" class="highlight">Click here</a> to get back to your planner.</p>
+		<% end %>
     </div>
 	<%= render(:partial => 'subscribe') %>
 </div>

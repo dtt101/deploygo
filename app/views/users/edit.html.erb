@@ -33,8 +33,10 @@
 <p>
   <%= link_to '&lt; back to users', users_path %>
 </p>
+<% if @thisuser.id != @user.id %>
 <div class="destroy">
   You can also <%= link_to 'delete this user', @thisuser, :confirm => 'Are you sure? There is no going back!', :method => :delete %>
 </div>
+<% end %>
 <% end %>
 </div>
