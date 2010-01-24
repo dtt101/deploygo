@@ -18,6 +18,10 @@ class HomeController < ApplicationController
     # render support page - faqs
   end
   
+  def plans
+    # render plans page
+  end
+  
   def login
     @bodyid = "login"
     if request.post?
