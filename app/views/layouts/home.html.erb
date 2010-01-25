@@ -12,13 +12,14 @@
 	<%= stylesheet_link_tag "deploygo", :media => "all" %>
 </head>
 <body id="<%= @bodyid || 'public' %>">
-	<!-- TODO -->
+	<div id="notifications">
 	<% if flash[:notice] %>
 		<div id="notice"><%= flash[:notice] %></div>
 	<% end %>
 	<% if flash[:warning] %>
 		<div id="warning"><%= flash[:warning] %></div>
 	<% end %>
+	</div>
     <div id="wrapper">
         <div id="header">
             <div id="nav">

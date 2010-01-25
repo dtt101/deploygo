@@ -131,6 +131,16 @@ function doSelectedAllocations(token) {
 
 // code run when window loads
 document.observe("dom:loaded", function() {
+
+	notificationHide = function(e) {
+		Effect.SlideUp('notifications', { duration: 0.5, delay: 3 });
+	}
+	
+	// notifications - test for id notice or id warning
+	if (($('notice') != undefined || $('warning') != undefined) && $('notifications') != undefined) {
+		notificationHide();	
+	}
+	
 	cellClicked = function(e) {
 		day = e.element().identify();
 		// get value from id
