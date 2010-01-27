@@ -1,0 +1,7 @@
+body#login div.login-panel input {
+    line-height:16px;
+	font-size:108%;
+}
+body#login dt.login-panel-password {
+	margin-top:8px;
+}
