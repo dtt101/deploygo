@@ -5,3 +5,13 @@ body#login div.login-panel input {
 body#login dt.login-panel-password {
 	margin-top:8px;
 }
+body#login div.login-panel dd input #password {
+    float:left;
+}
+body#login div.login-panel dd {
+    position:relative;
+}
+body#login div.login-panel span {
+    position:absolute;
+    margin-left:10px;
+}
