@@ -8,7 +8,7 @@
 				<dd><%= text_field_tag :name, params[:name] %></dd>		
 				<dt class="login-panel-password"><label for="password">Password</label></dt>
 				<dd><%= password_field_tag :password, params[:password] %>
-				<span><%= link_to 'Forgotten password?', { :action => "forgotten" }, :class => 'highlight' %></span>
+                <span><%= link_to 'Forgotten password?', { :action => "forgotten" }, :class => 'highlight' %></span>
 				</dd>
 				<dd><%= submit_tag "Login", :class => 'button' %><dd>
 			</div>
