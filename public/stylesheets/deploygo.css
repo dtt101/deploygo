@@ -76,6 +76,26 @@ div.sidebar {
     background-image:url('../images/bg_sidebar.jpg');
     background-repeat:no-repeat;
 }
+#primary.full-width {
+	min-height:20px;
+}
+div.primary-full-width {
+	clear:both;
+	padding:40px 40px 20px 40px;
+}
+div.tour-item {
+    border-bottom:1px solid #739b99;
+	margin-bottom:40px;	
+	padding-bottom:40px;
+}
+div.tour-item h2 {
+    font-size:167%;
+	padding-bottom:12px;
+}
+div.tour-item img {
+	padding-top:20px;
+	width:940px;
+}
 #primary div {
     margin:70px 14px 0 40px;
 }
