@@ -6,6 +6,7 @@ function handleProjectChange(e) {
 	var project_selection = Element.extend(e.element());
 	var c = new Cookies();
 	c.set('deploygo_project_selection', project_selection.value);
+    disableDragSelection();
 }
 
 // toggle filters visibility
