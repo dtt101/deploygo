@@ -59,7 +59,7 @@ strong {
     background-color:#071111;
     clear:both;
     width:940px;
-    margin:40px;
+    margin:40px 40px 0 40px;
     height:88px;
 }
 #nav {
@@ -246,4 +246,17 @@ p.question {
     background-repeat:no-repeat;
     background-position:0px 8px;
     padding-left:12px;
+}
+div#designby {
+    clear:both;
+    width:940px;
+    margin:5px 40px 30px 40px;	
+	text-align:right;
+}
+div#designby a {
+	color:#598180;
+	font-size:85%;
+}
+div#designby a:hover {
+	color:#fff;
 }
