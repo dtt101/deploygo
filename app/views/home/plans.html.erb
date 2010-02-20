@@ -1,15 +1,23 @@
 <div id="primary">
 	<div class="primary-content-header">
 		<h1><%= image_tag("heading-plans.png", :alt => 'Plans and Pricing', :height => '47', :width => '282') %></h1>
-		<p class="description">Complete the simple form to signup for the free plan.</p>
-		<p>We are currently in a public beta, offering free accounts whilst we develop the service behind the scenes.</p>
-		<form>
-			Name<br/>
-			Email<br />
-			Password<br />
-			Repeat password<br />
-			Organisation name
-		</form>
+		<p class="description">While we are in beta we will be offering free accounts.</p>
+		<p>Signup for a free trial account in less than 60 seconds.</p>
+		<% form_tag({}, {:class => 'form-register'}) do %>
+			<dl>
+				<dt><label for="name">Name</label></dt>
+				<dd><%= text_field_tag :name, params[:name] %></dd>	
+				<dt><label for="email">Email</label></dt>
+				<dd><%= text_field_tag :email, params[:email] %></dd>
+				<dt><label for="email">Company</label></dt>
+				<dd><%= text_field_tag :company, params[:company] %></dd>	
+				<dt><label for="password">Password</label></dt>
+				<dd><%= password_field_tag :password, params[:password] %></dd>
+				<dt><label for="password">Confirm Password</label></dt>
+				<dd><%= password_field_tag :password, params[:password] %></dd>
+				<dd><%= submit_tag "Sign Up Now", :class => 'button' %><dd>
+			<dl>
+		<% end %>
 	</div>
 </div>
 <div id="secondary">

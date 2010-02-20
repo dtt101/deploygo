@@ -260,3 +260,38 @@ div#designby a {
 div#designby a:hover {
 	color:#fff;
 }
+/* register */
+form.form-register {
+	margin-top:32px;
+}
+form.form-register input {
+	line-height:24px;
+	font-size:108%;
+	width:300px;
+}
+form.form-register input#password {
+	width:200px;
+}
+form.form-register dt {
+	width:120px;
+	float:left;
+	line-height:24px;
+	font-size:108%;
+	margin-top:6px;
+	padding-right:15px;
+	text-align:right;
+}
+form.form-register dd {
+	margin:10px 0px 5px 80px;
+	line-height:24px;
+	font-size:93%;
+}
+form.form-register input.button {
+	width:auto;
+	font-size:100%;
+	margin-left:170px;
+	margin-top:10px;
+	padding:3px;
+    border:0;
+	width:100px;
+}
