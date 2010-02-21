@@ -267,10 +267,10 @@ form.form-register {
 form.form-register input {
 	line-height:24px;
 	font-size:108%;
-	width:300px;
-}
-form.form-register input#password {
 	width:200px;
+}
+form.form-register input.password-field {
+	width:150px;
 }
 form.form-register dt {
 	width:120px;
@@ -294,4 +294,10 @@ form.form-register input.button {
 	padding:3px;
     border:0;
 	width:100px;
+}
+#primary form.form-register div {
+	padding:0;
+	margin:0;
+	display:inline;
+	margin-right:10px;
 }

@@ -20,6 +20,30 @@ class HomeController < ApplicationController
   
   def plans
     # render plans page
+    @newuser = User.new
+    @neworg = Organisation.new
+  end
+  
+  def register
+    # TODO:
+    # send email with thank you and username, URL
+    @newuser = User.new(params[:newuser])
+    @neworg = Organisation.new(params[:neworg])
+    @neworg.administrator = false
+    @newuser.read_only = false
+    Organisation.transaction do 
+      @neworg.save! 
+      @newuser.organisation = @neworg 
+      @newuser.save!
+      login_user(@newuser)
+      redirect_to(:controller => "time", :action => "index")
+    end
+    rescue ActiveRecord::RecordInvalid => e 
+    	# force checking of errors
+      @newuser.valid?
+      @neworg.valid?
+      flash.now[:warning] = "All fields are required, and the passwords must be the same"
+      render :action => :plans
   end
   
   def login

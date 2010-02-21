@@ -3,19 +3,21 @@
 		<h1><%= image_tag("heading-plans.png", :alt => 'Plans and Pricing', :height => '47', :width => '282') %></h1>
 		<p class="description">While we are in beta we will be offering free accounts.</p>
 		<p>Signup for a free trial account in less than 60 seconds.</p>
-		<% form_tag({}, {:class => 'form-register'}) do %>
+		<% form_for :newuser, :url => { :action => :register }, :html => { :class => 'form-register' } do |f| %>
 			<dl>
-				<dt><label for="name">Name</label></dt>
-				<dd><%= text_field_tag :name, params[:name] %></dd>	
-				<dt><label for="email">Email</label></dt>
-				<dd><%= text_field_tag :email, params[:email] %></dd>
-				<dt><label for="email">Company</label></dt>
-				<dd><%= text_field_tag :company, params[:company] %></dd>	
-				<dt><label for="password">Password</label></dt>
-				<dd><%= password_field_tag :password, params[:password] %></dd>
-				<dt><label for="password">Confirm Password</label></dt>
-				<dd><%= password_field_tag :password, params[:password] %></dd>
-				<dd><%= submit_tag "Sign Up Now", :class => 'button' %><dd>
+				<dt><%= f.label :name %></dt>
+				<dd><%= f.text_field :name %><%= error_message_on(:newuser, :name) %></dd>
+				<dt><%= f.label :email %></dt>
+				<dd><%= f.text_field :email %><%= error_message_on(:newuser, :email) %></dd>					
+				<dt><%= f.label :password %></dt>
+				<dd><%= f.password_field :password, :class => 'password-field' %><%= error_message_on(:newuser, :password) %></dd>
+				<dt><%= f.label :password_confirmation, 'Confirm Password' %></dt>
+				<dd><%= f.password_field :password_confirmation, :class => 'password-field' %></dd>
+				<% fields_for :neworg do |organisation| %>
+					<dt><%= organisation.label :name, 'Company' %></dt>
+					<dd><%= organisation.text_field :name %><%= error_message_on(:neworg, :name) %></dd>
+				<% end %>
+				<dd><%= f.submit "Sign Up Now", :class => 'button' %><dd>
 			<dl>
 		<% end %>
 	</div>
