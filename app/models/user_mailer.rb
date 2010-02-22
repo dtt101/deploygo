@@ -7,5 +7,13 @@ class UserMailer < ActionMailer::Base
     sent_on    sent_at
     body       :user => user, :url => "http://www.deploygo.com/home/reset_password/#{user.reset_password_code}"
   end
+  
+  def registered(user, sent_at = Time.now)
+    subject    'deploygo.com - Thank you for registering'
+    recipients user.email
+    from       'deploygo@googlemail.com'
+    sent_on    sent_at
+    body       :user => user
+  end
 
 end
