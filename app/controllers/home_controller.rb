@@ -28,6 +28,7 @@ class HomeController < ApplicationController
     @newuser = User.new(params[:newuser])
     @neworg = Organisation.new(params[:neworg])
     @neworg.administrator = false
+    @neworg.resource_limit = 10
     @newuser.read_only = false
     begin
       Organisation.transaction do 
