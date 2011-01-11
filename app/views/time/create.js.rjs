@@ -3,7 +3,7 @@
   htmlid = "day_" + allocation.resource.id.to_s + "_" + allocation.allocation_date.to_s(:db) 
   @allocation = allocation
   page.select('#' + htmlid).each do |element| 
-    # TODO - remove cell-selected from element rjs
+    # remove cell-selected from element rjs
     element.classNames.remove('cell-selected')
     page.replace_html(htmlid, {:partial => 'project', :object => allocation})
     page.visual_effect :highlight, 'allocation_' + allocation.id.to_s
