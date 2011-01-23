@@ -301,14 +301,13 @@ table#resource-calendar td {
 	border-color:#69D2E7;
 	border-width:0 1px 1px 0;
 	border-style:solid;
-	padding:4px;
-    padding-bottom:2px;
+	padding:5px;
 	margin:0;
 	vertical-align:top;
 	position:relative;
 	min-width:55px;
-    background-color:#fff;
-	height:58px;
+  background-color:#fff;
+	height:40px;
 }
 table#resource-calendar tr.even {
 	background-color:#f7f7f7;
@@ -365,10 +364,8 @@ table#resource-calendar td.today { background-color:#ffffcc;}
 table#resource-calendar td div { 
 	position:relative;
 	padding:4px;
-	margin:0;
+	margin:0 0 5px 0;
 	background-color:#e0e5f2;
-    min-height:48px;
-    height:48px;
 }
 table#resource-calendar td div div.project {
 	margin:2px 0 0 0;
