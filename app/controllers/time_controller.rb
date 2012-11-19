@@ -1,4 +1,3 @@
-require 'json/add/rails'
 
 class TimeController < ApplicationController
 
@@ -43,14 +42,14 @@ class TimeController < ApplicationController
   # takes a json allocations array of : {'resource_id':resource_id, 'allocation_date':allocation_date, 'project_id':project_id}
   # creates allocations, tests if valid then creates in database
   def create
-    allocations = JSON.parse(params['allocations'])
+    allocations = ActiveSupport::JSON.decode(params['allocations'])
     @allocations = []
     allocations.each do | a |
       allocation = Allocation.new
       allocation.resource_id = a['resource_id']
       allocation.project_id = a['project_id']
       # parse to date - as oppose to time to ensure date format understood by db
-      allocation.allocation_date = Date.parse(a['allocation_date']);
+      allocation.allocation_date = a['allocation_date'];
       # check the supplied ids apply to the current organisation
       if @organisation.projects.find(allocation.project_id) and @organisation.resources.find(allocation.resource_id)      
         # check if weekends are excluded for project - if so do not create
@@ -75,7 +74,7 @@ class TimeController < ApplicationController
 
   # destroys allocations in provided json dictionary
   def destroy
-    allocation_ids = JSON.parse(params['allocations'])
+    allocation_ids = ActiveSupport::JSON.decode(params['allocations'])
     @allocations = []
       allocation_ids.each do | a |      
         allocation = Allocation.find(a['allocation_id'])
