@@ -16,9 +16,9 @@ config.action_controller.perform_caching             = false
 # Don't care if the mailer can't send
 config.action_mailer.raise_delivery_errors = true
 
-# email settings - chilli.isotomadev.com?
+# email settings
 config.action_mailer.smtp_settings = { 
   :address => "localhost", 
   :port => 25,
-  :domain => 'isotoma.com'
+  :domain => 'example.com'
 }
